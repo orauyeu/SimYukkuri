@@ -1,0 +1,3 @@
+YukkuriStat - Event - EventManager - Ai のような階層になっている
+
+ai.RegacyAiはOSDN版のイベントにあたる部分を切り出したもの.

@@ -1,0 +1,26 @@
+# Java
+*.class
+*.jar
+
+# Gradle
+.gradle
+!gradle-wrapper.jar
+
+# Eclipse
+.project
+.classpath
+.settings
+
+# IntelliJ IDEA
+.idea
+*.iml
+*.iws
+*.ipr
+
+# OS related
+Thumbs.db
+.DS_Store
+
+# Builded artifacts
+out
+build

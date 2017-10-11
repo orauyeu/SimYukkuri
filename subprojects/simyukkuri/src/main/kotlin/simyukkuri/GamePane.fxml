@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0"
+          prefWidth="768.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="simyukkuri.GamePaneController">
+    <children>
+        <Canvas fx:id="gameSceneCanvas" height="432.0" width="568.0"/>
+        <FlowPane orientation="VERTICAL">
+            <FlowPane.margin>
+                <Insets/>
+            </FlowPane.margin>
+            <children>
+                <VBox spacing="5.0">
+                    <children>
+                        <ComboBox fx:id="mainMenu" prefWidth="150.0"/>
+                        <ComboBox prefWidth="150.0"/>
+                        <ComboBox prefWidth="150.0"/>
+                    </children>
+                    <FlowPane.margin>
+                        <Insets top="5.0"/>
+                    </FlowPane.margin>
+                </VBox>
+                <HBox spacing="5.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#addYukkuri" text="ゆっくりを追加"/>
+                        <Button mnemonicParsing="false" text="セーブ"/>
+                        <Button mnemonicParsing="false" text="ロード"/>
+                    </children>
+                    <FlowPane.margin>
+                        <Insets top="5.0"/>
+                    </FlowPane.margin>
+                </HBox>
+                <Button fx:id="testButton" mnemonicParsing="false" onAction="#test" prefHeight="50.0" prefWidth="150.0"
+                        text="テスト用ボタン">
+                    <FlowPane.margin>
+                        <Insets top="5.0"/>
+                    </FlowPane.margin>
+                </Button>
+                <VBox spacing="5.0">
+                    <children>
+                        <Label text="ゆっくりの状態">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="stress" text="ストレス">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="damage" text="ダメージ">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label text="空腹度">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label text="うんうん">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label text="レイパー">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label text="ゲス">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                        <Label fx:id="testLabel" text="テストエリア">
+                            <VBox.margin>
+                                <Insets/>
+                            </VBox.margin>
+                        </Label>
+                    </children>
+                    <FlowPane.margin>
+                        <Insets top="5.0"/>
+                    </FlowPane.margin>
+                </VBox>
+            </children>
+            <padding>
+                <Insets left="10.0"/>
+            </padding>
+        </FlowPane>
+    </children>
+</FlowPane>
