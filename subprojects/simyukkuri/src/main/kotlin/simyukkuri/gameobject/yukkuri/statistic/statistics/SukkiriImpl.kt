@@ -68,8 +68,8 @@ class SukkiriImpl : Sukkiri {
         other.feels(Emotion.Happiness.HAPPY)
         other.fullnessParam -= fullnessConsumedByBeingSukkiried
         // TODO: レイパーの場合や既に番がいる場合などを考慮する.
-        self.mate = other
-        other.mate = self
+        self.partner = other
+        other.partner = self
         // TODO: 一度に複数の赤ゆを妊娠できるようにする.
         other.babiesInWomb.add(YukkuriFactory.createYukkuriFromParents(self, other))
     }

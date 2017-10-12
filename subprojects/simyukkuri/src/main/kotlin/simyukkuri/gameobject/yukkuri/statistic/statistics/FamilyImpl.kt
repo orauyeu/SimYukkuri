@@ -22,9 +22,9 @@ class FamilyImpl(override val father: YukkuriStat?, override val mother: Yukkuri
 
     override fun isChildOf(other: YukkuriStat): Boolean = other in parents
 
-    override var mate: YukkuriStat? = null
+    override var partner: YukkuriStat? = null
 
-    override fun isMateOf(other: YukkuriStat): Boolean = mate == other
+    override fun isPartnerOf(other: YukkuriStat): Boolean = partner == other
 
     override val elderSisters: MutableCollection<YukkuriStat> = mutableSetOf()
 
@@ -54,5 +54,5 @@ class FamilyImpl(override val father: YukkuriStat?, override val mother: Yukkuri
         return isChildOf(other) || isParentOf(other) || isSisterOf(other)
     }
 
-    override fun areFamily(other: YukkuriStat): Boolean = isRelatedToByBlood(other) || isMateOf(other)
+    override fun areFamily(other: YukkuriStat): Boolean = isRelatedToByBlood(other) || isPartnerOf(other)
 }

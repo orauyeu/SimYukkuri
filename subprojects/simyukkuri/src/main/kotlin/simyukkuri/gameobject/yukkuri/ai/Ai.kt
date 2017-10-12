@@ -71,8 +71,8 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
      * 対象が存在しない場合はnullを返す.
      */
     fun findSukkiriTarget(): YukkuriStat? {
-        if (self.mate != null) {
-            return self.mate
+        if (self.partner != null) {
+            return self.partner
         } else {
             return gameScene.yukkuriNearestTo(self)
         }

@@ -10,33 +10,29 @@ import org.yaml.snakeyaml.nodes.Tag
 import org.yaml.snakeyaml.representer.Represent
 import org.yaml.snakeyaml.representer.Representer
 
-/** [Type]のyaml上のタグ. */
-val typeTag = "!type"
+/** [Statistics]のyaml上のタグ. */
+val statsTag = "!stats"
 
 private class TypeConstructor : Constructor() {
     init {
-        yamlConstructors.put(Tag(typeTag), ConstructType())
+        yamlConstructors.put(Tag(statsTag), ConstructType())
     }
 
     private inner class ConstructType : AbstractConstruct() {
-        override fun construct(node: Node): Any {
-            val str = constructScalar(node as ScalarNode) as String
-            return Type.parse(str)
-        }
+        override fun construct(node: Node): Any =
+            Statistics.parse(constructScalar(node as ScalarNode) as String)
     }
 }
 
 
 private class TypeRepresenter : Representer() {
     init {
-        representers.put(Type::class.java, RepresentType())
+        representers.put(Statistics::class.java, RepresentType())
     }
 
     private inner class RepresentType : Represent {
-        override fun representData(data: Any): Node {
-            val type = data as Type
-            return representScalar(Tag(typeTag), type.toSimpleString())
-        }
+        override fun representData(data: Any): Node =
+            representScalar(Tag(statsTag), (data as Statistics).toSimpleString())
     }
 }
 

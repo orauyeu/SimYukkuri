@@ -23,7 +23,7 @@ class Sukkiried(val self: YukkuriStat, val by: YukkuriStat) : SingleAction() {
         self.fullnessParam -= self.fullnessConsumedByBeingSukkiried
 
         // TODO: レイパーの場合や既に番がいる場合などを考慮する.
-        self.mate = by
+        self.partner = by
         // TODO: 一度に複数の赤ゆを妊娠できるようにする.
         self.babiesInWomb.add(YukkuriFactory.createYukkuriFromParents(self, by))
     }

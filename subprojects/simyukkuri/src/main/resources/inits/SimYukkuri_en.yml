@@ -1,0 +1,145 @@
+title: SimYukkuri
+version: "Ver. 1.14"
+panel: 
+  menu: 
+    - - name: Tool
+        submenu: 
+          - Punish
+          - Hammer
+          - Vibrator
+          - Juice
+          - Snapping
+      - name: Food
+        submenu: 
+          - Normal
+          - Bitter
+          - "Auto-feeder"
+          - "Lemon pop"
+          - Hot
+          - Viyugra
+          - Fungicide
+      - name: Clean
+        submenu: 
+          - Individual
+          - All
+      - name: Accessory
+      - name: "Pick up"
+      - name: Pants
+      - name: Toilet
+      - name: Barrier
+        submenu: 
+          - Set
+          - Delete
+      - name: Toys
+      - name: "Belt conveyor"
+        submenu: 
+          - "To back"
+          - "To front"
+          - "To right"
+          - "To left"
+      - name: "Breeding pool"
+        submenu: 
+          - "Low-priced"
+          - "Full-bodied"
+          - "Growth-promoting"
+          - "Professional-use"
+      - name: "Garbage chute"
+      - name: "Machine press"
+      - name: "Food maker"
+        submenu: 
+          - Fine
+          - Medium
+          - Rough
+      - name: "Orange pool"
+        submenu: 
+          - "For drink"
+          - "For rescue use"
+      - name: "Product chute"
+    - - name: Pause
+      - name: "Speed: x1"
+      - name: "Speed: x5"
+      - name: "Speed: x10"
+      - name: "Speed: MAX"
+  button: 
+    - "Add Yukkuri"
+    - Save
+    - Load
+    - "Show Log"
+    - "Next Page"
+    - "Delete Log"
+  status: 
+    - "Status of Yukkuri"
+    - Stress
+    - Damage
+    - Hungry
+    - Shit
+    - Raipist
+    - Rude
+    - Foundage
+    - "$"
+  query: 
+    - "What kind of yukkuri?"
+    - "More yukkuri?"
+    - "("
+    - "yukkuris remain)"
+    - Yes
+    - No
+    - "You cannot add more yukkuri right now. If you want more, try breeding some."
+  type: 
+    - Marisa
+    - Reimu
+    - Alice
+  age: 
+    - Baby
+    - Child
+    - Adult
+  log: 
+    - title: "Number of current yukkuri(per kind)"
+      kind: 
+        - Marisa
+        - Reimu
+        - Alice
+        - Idiot
+        - Wasa
+        - Others
+    - title: "Number of current yukkuri(per age)"
+      kind: 
+        - Baby
+        - Child
+        - Adult
+    - title: "Number of moldy yukkuri"
+      kind: 
+        - molded
+        - healthy
+    - title: "Number of shit"
+      kind: 
+        - Shit
+    - title: "Income & Spend"
+      kind: 
+        - Foundage
+        - "Income($/min.)"
+initpath: "inits/"
+imagepath: "images/"
+yukkuri: 
+  - name: Marisa
+    init: "Marisa.yml"
+    image: "marisa/"
+  - name: Reimu
+    init: "Reimu.yml"
+    image: "reimu/"
+  - name: Alice
+    init: "Alice.yml"
+    image: "alice/"
+  - name: WasaReimu
+    init: "WasaReimu.yml"
+    image: "wasa/"
+  - name: Tarinai
+    init: "Tarinai.yml"
+    image: "tarinai/"
+  - name: MarisaReimu
+    init: "MarisaReimu.yml"
+    image: "marisa-reimu/"
+  - name: ReimuMarisa
+    init: "ReimuMarisa.yml"
+    image: "reimu-marisa/"
+foundage: 100000

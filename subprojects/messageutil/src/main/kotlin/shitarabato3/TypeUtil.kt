@@ -2,10 +2,10 @@ package shitarabato3
 
 import messageutil.Growth
 import messageutil.Love
-import messageutil.Type
+import messageutil.Statistics
 
 /** 指定された属性が含まれるかを返す. */
-internal fun Type.contains(attr: String): Boolean {
+internal fun Statistics.contains(attr: String): Boolean {
     when (attr) {
         "baby" -> return growth == Growth.BABY
         "child" -> return growth == Growth.CHILD
@@ -22,7 +22,7 @@ internal fun Type.contains(attr: String): Boolean {
         return isDamaged
 
     if (attr == "pooSlave")
-        return isUnunSlave
+        return isPooSlave
 
     when (attr) {
         "dislikeplayer" -> return love == Love.HATE
@@ -36,7 +36,7 @@ internal fun Type.contains(attr: String): Boolean {
 }
 
 /** 属性を加える. */
-internal fun Type.added(attr: String): Type {
+internal fun Statistics.added(attr: String): Statistics {
     when (attr) {
         "baby" ->
             return this.copy(growth = Growth.BABY)
@@ -57,7 +57,7 @@ internal fun Type.added(attr: String): Type {
         return this.copy(isDamaged = true)
 
     if (attr == "pooSlave")
-        return this.copy(isUnunSlave = true)
+        return this.copy(isPooSlave = true)
 
     when (attr) {
         "dislikeplayer" ->
@@ -73,7 +73,7 @@ internal fun Type.added(attr: String): Type {
 }
 
 /** 属性を取り除く. */
-internal fun Type.removed(attr: String): Type {
+internal fun Statistics.removed(attr: String): Statistics {
     when (attr) {
         "baby" ->
             return this.copy(growth = Growth.ALL)
@@ -90,7 +90,7 @@ internal fun Type.removed(attr: String): Type {
         return this.copy(isDamaged = false)
 
     if (attr == "pooSlave")
-        return this.copy(isUnunSlave = false)
+        return this.copy(isPooSlave = false)
 
     when (attr) {
         "dislikeplayer" ->

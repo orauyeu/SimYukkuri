@@ -9,7 +9,7 @@ interface Message {
      * セリフを1tick表示する.
      *
      * このメソッド使った発言は他のアクションと並行して行われる.
-     * 発言の終了後にアクションを行いたい場合は[gameobject.yukkuri.event.action.actions.Say]を利用する.
+     * 発言の終了後にアクションを行いたい場合は[simyukkuri.gameobject.yukkuri.event.action.actions.Say]を利用する.
      */
     fun says(message: String)
 
@@ -17,7 +17,7 @@ interface Message {
      * セリフを指定された秒数表示する.
      *
      * このメソッド使った発言は他のアクションと並行して行われる.
-     * 発言の終了後にアクションを行いたい場合は[gameobject.yukkuri.event.action.actions.Say]を利用する.
+     * 発言の終了後にアクションを行いたい場合は[simyukkuri.gameobject.yukkuri.event.action.actions.Say]を利用する.
      */
     fun says(message: String, period: Float)
 

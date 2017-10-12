@@ -5,10 +5,10 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
 /** ゆっくりの家族のインターフェース */
 interface Family {
     /** 番の相手 */
-    var mate: YukkuriStat?
+    var partner: YukkuriStat?
 
     /** 指定されたゆっくりと番であるかを返す. */
-    fun isMateOf(other: YukkuriStat): Boolean
+    fun isPartnerOf(other: YukkuriStat): Boolean
 
     /** 姉妹のコレクション */
     val sisters: Collection<YukkuriStat>

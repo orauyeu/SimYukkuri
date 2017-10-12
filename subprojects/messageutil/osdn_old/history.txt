@@ -1,3 +1,0 @@
-yamlに変換
-RudeHangryをRudeHungryに修正.
-SadnessForYungerSisterをSadnessForYoungerSisterに修正.

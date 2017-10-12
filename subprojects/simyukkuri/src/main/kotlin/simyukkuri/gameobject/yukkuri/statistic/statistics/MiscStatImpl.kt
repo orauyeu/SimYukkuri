@@ -52,7 +52,7 @@ class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
 
     override fun remove() {
         TODO("メモリリークする")
-        self.mate?.mate = null
+        self.partner?.partner = null
         isRemoved = true
     }
 

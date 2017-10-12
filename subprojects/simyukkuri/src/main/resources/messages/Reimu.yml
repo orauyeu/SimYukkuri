@@ -1,464 +1,457 @@
-WantFood:
-  !type 'baby':
+findsFood:
+  !stats 'baby':
   - ごはんしゃんのにおいがすりゅよ
-  !type 'child':
+  !stats 'child':
   - ごはんしゃんのにおいがすりゅよ
-  !type 'adult':
+  !stats 'adult':
   - ごはんさんのにおいがするよ
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - りぇいみゅのごはんしゃん！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - りぇいむのごはんしゃんのにおいがしゅりゅよ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - れいむのごはんさんのにおいがするよ！
-NoFood:
-  !type 'baby':
+wantsFood:
+  !stats 'baby':
   - ごはんしゃんにゃいよ！
-  !type 'child':
+  !stats 'child':
   - ごはんしゃんにゃいよ？
-  !type 'adult':
+  !stats 'adult':
   - ごはんさんないよ？
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ごはんしゃんくだちゃい、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ごはんしゃんくだちゃい、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ごはんざんぐだざいぃ、、、
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - ごはんしゃんにゃいよ！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - ごはんしゃんにゃいよ？ばきゃなの？しにゅの？
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - ごはんさんないよ？ばかなの？しぬの？
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - ごはんしゃんくだちゃい、、、
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - ごはんしゃんくだちゃい、、、
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - ごはんざんぐだざいぃ、、、
-Excite:
-  !type 'baby':
+sexuallyExcited:
+  !stats 'baby':
   - ゆんやー!
-  !type 'child':
+  !stats 'child':
   - すっぎりちたいの〜！
-  !type 'adult':
+  !stats 'adult':
   - すっぎりじだいの〜！
-Relax:
-  !type 'baby':
+relaxed:
+  !stats 'baby':
   - ゆっゆ～♪ゆっゆ～♪
-  !type 'child':
+  !stats 'child':
   - ゆっくりにょひ～♪まったりにょひ～♪
-  !type 'adult':
+  !stats 'adult':
   - ゆっくりのひ～♪まったりのひ～♪すっきりのひ～♪
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - くしょどれいはゆっきゅりちね！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - くしょどれいはあみゃあみゃもってきょい！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - ここをれいむのゆっくりぷれいすにするよ！
-FuriFuri:
-  !type 'baby':
+furifuri:
+  !stats 'baby':
   - ふーりふーり
-  !type 'child':
+  !stats 'child':
   - れいみゅかわいきゅてごみぇんね！
-  !type 'adult':
+  !stats 'adult':
   - れいむかわいくてごめんね！
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - ふーりふーり
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - れいみゅのあにゃるでしこっちぇもいいよ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - れいむのあにゃるでしこってもいいよ！
-Wakeup:
-  !type 'baby':
+wakesUp:
+  !stats 'baby':
   - ゆっきゅりしていっちぇね！
-  !type 'child':
+  !stats 'child':
   - ゆっきゅりしていっちぇね！
-  !type 'adult':
+  !stats 'adult':
   - ゆっくりしていってね！
-Sleep:
-  !type 'baby':
+sleeping:
+  !stats 'baby':
   - すーやすーや
-  !type 'child':
+  !stats 'child':
   - すーやすーや
-  !type 'adult':
+  !stats 'adult':
   - すーやすーや
-Scream:
-  !type 'baby':
+screams:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆんやー！やめちぇにぇ？やめちぇにぇ？
-  !type 'adult':
+  !stats 'adult':
   - いたい！やめてね？やめてね？
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - やめちぇね、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - やめてくださいぃ、、、
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - ゆんやー！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - ゆんやー！にゃにすりゅの？ぷきゅーじゃよ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - いだいぃ！やめろくそどれい！ぷくーだよ！
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - ごみぇんなさいりぇいみゅがわりゅかったでしゅ
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - れいむがわるかったです、ごめんなさい、やめてくださいぃ
-Scare:
-  !type 'baby':
+scared:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆっくちできにゃいー！
-  !type 'adult':
+  !stats 'adult':
   - なんだかゆっくりできないよ！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ごめんなちゃいやめちぇにぇ、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - どぼじででいぶにこんなごどずるのぉ、、、
-ScareRapist:
-  !type 'baby':
+scaredAtRaper:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆんやー！れいぱーだー！
-  !type 'adult':
+  !stats 'adult':
   - れいぱーだー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ごめんなちゃいやめちぇにぇ、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - おねがいじばず、やめでぐだざいぃ、、、
-Alarm:
-  !type 'baby':
+alarmed:
+  !stats 'baby':
   - ゆー！
-  !type 'child':
+  !stats 'child':
   - にゃんだかゆっくちできにゃい！
-  !type 'adult':
+  !stats 'adult':
   - なんだかゆっくりできないよ！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ごめんなちゃいやめちぇにぇ、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - やめてください、、、
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - ゆー！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - ゆっくちできにゃい！やめりょくしょどれい！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - なんだかゆっくりできないよ！すぐにやめてね！
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - ゆ、ゆ、ゆ、、、
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - ごめんなちゃい、、、
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - れいむがわるかったですぅ、やめてくださいぃ、、、
-Dying:
-  !type 'baby':
+killedInstantly:
+  !stats 'baby':
   - ゆべっ！
-  !type 'child':
+  !stats 'child':
   - ぷきゅっ！
-  !type 'adult':
+  !stats 'adult':
   - げぼっ！
-Dead:
-  !type 'baby':
+dies:
+  !stats 'baby':
   - もっちょゆっくち、、、
-  !type 'child':
+  !stats 'child':
   - もっちょゆっくちしちゃかった、、、
-  !type 'adult':
+  !stats 'adult':
   - もっとゆっくりしたかった、、、
-Eating:
-  !type 'baby':
+eating:
+  !stats 'baby':
   - ゆ～ゆ～ゆ～、ちあわちぇー
-  !type 'child':
+  !stats 'child':
   - むーちゃむーちゃ、ちあわちぇー
-  !type 'adult':
+  !stats 'adult':
   - むーしゃむーしゃ、しあわせー
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ！ゆ！ゆ！
-  !type 'child, damage':
+  !stats 'child, damage':
   - むちゃむちゃ、ちあわちぇー！！！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - むっしゃむっしゃ、しあわせー！！！
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - む〜ちゃむ〜ちゃ、しょれにゃりー
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - むーちゃむーちゃ、しょりぇにゃりー
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - むーしゃむーしゃ、それなりー
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - ゆ！ゆ！ゆ！
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - むちゃむちゃ、はふはふ
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - むっしゃむっしゃ、うめぇ
-EatingShit:
-  !type 'baby':
+eatingPoo:
+  !stats 'baby':
   - む〜ちゃむ〜ちゃ、げりょまじゅ、、、
-  !type 'child':
+  !stats 'child':
   - むーちゃむーちゃ、げろまじゅ、、、
-  !type 'adult':
+  !stats 'adult':
   - むーしゃむーしゃ、げろまず、、、
-EatingBitter:
-  !type 'baby':
+hasEatenBitter:
+  !stats 'baby':
   - む〜ちゃむ〜ちゃ、こりぇどきゅはいっちぇりゅ！
-  !type 'child':
+  !stats 'child':
   - むーちゃむーちゃ、こりぇどきゅはいっちぇりゅ！
-  !type 'adult':
+  !stats 'adult':
   - むーしゃむーしゃ、これどくはいってる！
-Full:
-  !type 'baby':
+getsFull:
+  !stats 'baby':
   - おにゃかいっぱい、、、
-  !type 'child':
+  !stats 'child':
   - おにゃかいっぱい、、、
-  !type 'adult':
+  !stats 'adult':
   - もうたべられないの、、、
-Healing:
-  !type 'baby':
+takesSweets:
+  !stats 'baby':
   - あみゃあみゃ！
-  !type 'child':
+  !stats 'child':
   - あまあまおいしい！
-  !type 'adult':
+  !stats 'adult':
   - あまあまおいしいね！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - あみゃあみゃ！
-  !type 'child, damage':
+  !stats 'child, damage':
   - りぇいみゅはふっかつしちゃよ！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - れいむはふっかつしたよ！
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - あみゅあみゃ！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - りぇいみゅにあまあまもっとちょうだいにぇ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - れいむにあまあまもっとちょうだいね！
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - あみゃあみゃ！
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - りぇいみゅはかれいにふっかつしちゃよ！
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - れいむはかれいにふっかつしたよ！
-Sukkiri:
-  !type 'baby':
+hasSukkiried:
+  !stats 'baby':
   - ちゅっきち！
-  !type 'child':
+  !stats 'child':
   - ちゅっきり！
-  !type 'adult':
+  !stats 'adult':
   - すっきり！
-Birth:
-  !type 'baby':
+born:
+  !stats 'baby':
   - ゆっくちちていっちぇね！
-WantShit:
-  !type 'baby':
+startsToPoop:
+  !stats 'baby':
   - うんうんぢぇりゅ！
-  !type 'child':
+  !stats 'child':
   - りぇいみゅのすーぴゃーうんうんちゃいみゅはじみゃるよ！
-  !type 'adult':
+  !stats 'adult':
   - れいむのすーぱーうんうんたいむはじまるよ！
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - うんうんぢぇりゅ！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - くしょどれいはりぇいみゅのうんうんたべてもいいよ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - くそどれいはれいむのうんうんたべてもいいよ！
-Wetting:
-  !type 'baby':
+needsToPoop:
+  !stats 'baby':
   - うんうんぢぇりゅ！
-  !type 'child':
+  !stats 'child':
   - うんうんしゃんもれりゅぅ！
-  !type 'adult':
+  !stats 'adult':
   - うんうんさんもれるぅ！
-Shitting:
-  !type 'baby':
+hasPooped:
+  !stats 'baby':
   - すっきち！
-  !type 'child':
+  !stats 'child':
   - すっきちー！
-  !type 'adult':
+  !stats 'adult':
   - すっきりー！
-Wetted:
-  !type 'baby':
+leaksPoo:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆんやー！
-  !type 'adult':
+  !stats 'adult':
   - えぐっえぐっ、、、
-SuriSuri:
-  !type 'baby':
+surisuri:
+  !stats 'baby':
   - ちゅりちゅり
-  !type 'child':
+  !stats 'child':
   - ちゅーりちゅーり
-  !type 'adult':
+  !stats 'adult':
   - すーりすーり
-PeroPero:
-  !type 'baby':
+peropero:
+  !stats 'baby':
   - ぺりょぺりょ
-  !type 'child':
+  !stats 'child':
   - ぺーりょぺーりょ
-  !type 'adult':
+  !stats 'adult':
   - ぺーろぺーろ
-Breeding:
-  !type 'baby':
+bearing:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
-  - う、うまれりゅ、、、
-  !type 'adult':
-  - う、うばれる、、、
-Breed:
-  !type 'baby':
-  - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆっくちしちぇいっちぇね！
-  !type 'adult':
+  !stats 'adult':
   - ゆっくりしていってね！
-Abort:
-  !type 'baby':
+lamentsForAbortingBaby:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆんやー！
-  !type 'adult':
+  !stats 'adult':
   - れいむのおちびちゃんがあぁ！
-HateShit:
-  !type 'baby':
+complainsAboutPoo:
+  !stats 'baby':
   - くちゃい〜！
-  !type 'child':
+  !stats 'child':
   - うんうんくちゃい！
-  !type 'adult':
+  !stats 'adult':
   - うんうんかたづけてね！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - くちゃい、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - くちゃいよ、ゆっきゅりできにゃい、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - くさいよ、ゆっくりできないよ、、、
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - くちゃい～！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - くちゃい～！しゅぎゅにかたじゅきぇりょ！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - うんうんかたづけてね！すぐでいいよ！
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - くちゃい、、、
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - くちゃいよ、ゆっきゅりできにゃい、、、
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - くさいよ、ゆっくりできないよ、、、
-Hungry:
-  !type 'baby':
+hungry:
+  !stats 'baby':
   - ごはんしゃんちょうじゃい！
-  !type 'child':
+  !stats 'child':
   - ごはんしゃんをれいみゅにちょうじゃいね！
-  !type 'adult':
+  !stats 'adult':
   - ごはんさんをれいむにちょうだいね！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ～、ごはんしゃん、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - おにゃきゃへっちゃよ、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - れいむにごはんぐだざいぃ
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - あみゃあみゃもってきょい！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - りぇいみゅのあまあましゅぎゅにもってきょい！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - れいむのあままをすぐにもってきてね！たくさんでいいよ！
-  !type 'baby, immoral, damage':
+  !stats 'baby, immoral, damage':
   - ゆ～、ごはんしゃん、、、
-  !type 'child, immoral, damage':
+  !stats 'child, immoral, damage':
   - おにゃきゃへっちゃよ、、、
-  !type 'adult, immoral, damage':
+  !stats 'adult, immoral, damage':
   - でいぶにごはんぐだざいぃ
-LostAccessory:
-  !type 'baby':
+losesOkazari:
+  !stats 'baby':
   - ゆぇーん！かえちてね？かえちてね？
-  !type 'child':
+  !stats 'child':
   - ゆぇーん！りぇいみゅのきゃわいいおりぼんしゃんかえちてね？
-  !type 'adult':
+  !stats 'adult':
   - れいむのすてきなおりぼんさんどこにいったの？
-HateYukkuri:
-  !type 'baby':
+despisesYukkuriHavingNoOkazari:
+  !stats 'baby':
   - ゆっくちできにゃいゆっくちがいりゅよ
-  !type 'child':
+  !stats 'child':
   - ゆっくちできにゃいゆっくちがいりゅよ
-  !type 'adult':
+  !stats 'adult':
   - ゆっくりできないゆっくりがいるよ！
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - ゆっくちできにゃいゆっくちがいりゅよ
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - ゆふふ、ゆっくちできにゃいゆっくちがいりゅよ
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - ゆふふ、ゆっくりできないゆっくりがいるよ！せいっさいするよ！
-Flying:
-  !type 'baby':
+saysLikeFlying:
+  !stats 'baby':
   - おちょら！
-  !type 'child':
+  !stats 'child':
   - りぇいむはおしょらをとぶとりさん！
-  !type 'adult':
+  !stats 'adult':
   - おそらをとんでるみたい！
-SadnessForChild:
-  !type 'baby':
+childDies:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - おちびちゃんすきとおったきれいなおめめをあけちぇー！
-  !type 'adult':
+  !stats 'adult':
   - おちびちゃんすきとおったきれいなおめめをあけてー！
-SadnessForPartner:
-  !type 'baby':
+partnerDies:
+  !stats 'baby':
   - めをあけちぇー！
-  !type 'child':
+  !stats 'child':
   - めをあけちぇー！
-  !type 'adult':
+  !stats 'adult':
   - めをあけてー！
-SadnessForElderSister:
-  !type 'baby':
+elderSisterDies:
+  !stats 'baby':
   - おねぇしゃんめをあけちぇー！
-  !type 'child':
+  !stats 'child':
   - おねぇしゃんめをあけちぇー！
-  !type 'adult':
+  !stats 'adult':
   - おねぇしゃんめをあけてー！
-SadnessForYoungerSister:
-  !type 'baby':
+youngerSisterDies:
+  !stats 'baby':
   - いもうちょめをあけちぇー！
-  !type 'child':
+  !stats 'child':
   - いもうちょめをあけちぇー！
-  !type 'adult':
+  !stats 'adult':
   - いもうちょめをあけてー！
-BlockedByWall:
-  !type 'baby':
+blockedByWall:
+  !stats 'baby':
   - りぇいみゅしゅしゅめにゃいにょぉぉぉ！？
-  !type 'child':
+  !stats 'child':
   - にゃんでかべしゃんじゃましゅりゅにょぉぉぉ！？
-  !type 'adult':
+  !stats 'adult':
   - なんでかべさんじゃまするのおぉぉぉ！？
-  !type 'baby, immoral':
+  !stats 'baby, immoral':
   - くちょかびぇはちね！！
-  !type 'child, immoral':
+  !stats 'child, immoral':
   - くちょかべはちね！！ぷきゅーじゃよ！！
-  !type 'adult, immoral':
+  !stats 'adult, immoral':
   - じゃまなかべさんはどいてね！すぐでいいよ！
-GetTreasure:
-  !type 'baby':
+getsTreasure:
+  !stats 'baby':
   - こりぇをりぇいみゅのたからものにしゅるよ！
-  !type 'child':
+  !stats 'child':
   - こりぇをれいみゅのたからものにしゅるよ！
-  !type 'adult':
+  !stats 'adult':
   - これをれいむのたからものにするよ！
-LostTreasure:
-  !type 'baby':
+treasureTaken:
+  !stats 'baby':
   - ゆんやー！
-  !type 'child':
+  !stats 'child':
   - ゆんやー！れいみゅのたからものさんかえちてにぇ？
-  !type 'adult':
+  !stats 'adult':
   - れいむのたからものさんかえしてね？
-NobiNobi:
-  !type 'baby':
+nobinobi:
+  !stats 'baby':
   - にょーびにょーびしゅりゅよ
-  !type 'child':
+  !stats 'child':
   - のーびのーびしゅりゅよ
-  !type 'adult':
+  !stats 'adult':
   - のーびのーびするよ

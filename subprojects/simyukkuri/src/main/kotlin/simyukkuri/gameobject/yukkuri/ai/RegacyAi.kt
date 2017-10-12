@@ -50,7 +50,7 @@ class RegacyAi(val gameScene: GameScene) {
         // レイパーの場合も生きているゆっくりを優先するようにするべき？
         // TODO: レイパーはレイパーを襲わないようにする
         val target = when {
-            (self.mate != null && !self.mate!!.isDead) -> self.mate
+            (self.partner != null && !self.partner!!.isDead) -> self.partner
             else -> gameScene.yukkuriNearestTo(self) { willSukkiriWith(it) }
         } ?: return
         self.tryToSukkiri(target)
@@ -78,7 +78,7 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
     protected fun willInitiatePhysicalContactWith(other: YukkuriStat): Boolean {
-        if (self.isMateOf(other))
+        if (self.isPartnerOf(other))
             return true
 
         if (self.isElderSisterOf(other))
@@ -96,7 +96,7 @@ class RegacyAi(val gameScene: GameScene) {
         if (self.action > ActionManager.Event.PHYSICAL_CONTACT) return
         val target = gameScene.yukkuriNearestTo(self) { willInitiatePhysicalContactWith(it) } ?: return
         when {
-            self.isMateOf(target) ->
+            self.isPartnerOf(target) ->
                 self.tryToSurisuri(target)
 
             self.isElderSisterOf(target) ->
@@ -113,7 +113,7 @@ class RegacyAi(val gameScene: GameScene) {
         val target = gameScene.yukkuriNearestTo(self) { self.areFamily(it) } ?: return
         when {
             self.isParentOf(target) -> self.showSadnessForChild(target)
-            self.isMateOf(target) -> self.showSadnessForPartner(target)
+            self.isPartnerOf(target) -> self.showSadnessForPartner(target)
             self.isSisterOf(target) -> self.showSadnessForSister(target)
         }
     }
@@ -171,9 +171,9 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
     protected fun goesToFamily() {
-        if (self.mate != null)
+        if (self.partner != null)
             if (Math.random() < 1 / 60 * Time.UNIT) {
-                self.goesTo(self.mate)
+                self.goesTo(self.partner)
             } else if (!self.isAdult && !self.sisters.isEmpty()) {
                 if (Math.random() < 1 / 60 * Time.UNIT) {
                     self.goesTo(nearest(self.sisters, self))
@@ -240,8 +240,8 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
     fun findSukkiriTarget(): YukkuriStat? {
-        if (self.mate != null) {
-            return self.mate
+        if (self.partner != null) {
+            return self.partner
         } else {
             return gameScene.yukkuriNearestTo(self)
         }

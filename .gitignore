@@ -21,6 +21,6 @@
 Thumbs.db
 .DS_Store
 
-# Builded artifacts
-out
-build
+# Built artifacts
+out/
+build/

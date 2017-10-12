@@ -65,7 +65,7 @@
 
 ### IntelliJ IDEAでCtrl+Qを入力したときなどに表示されるdocとして日本語ファイルを指定する方法
 * https://stackoverflow.com/questions/8587522/how-to-view-jdk-external-documentation-in-intellij-idea#comment52747938_8589892
-* 以上のURLの手順に従って, "https://docs.oracle.com/javase/jp/8/docs/api/", "https://docs.oracle.com/javase/jp/8/javafx/api/" を指定する.
+* 上記のURLの手順に従って, "https://docs.oracle.com/javase/jp/8/docs/api/", "https://docs.oracle.com/javase/jp/8/javafx/api/" を指定する.
 
 ### マークダウンを表示する方法
 * https://qiita.com/SUZUKI_Masaya/items/6476dbbcb3e369640c78
