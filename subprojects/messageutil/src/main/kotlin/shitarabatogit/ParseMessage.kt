@@ -1,4 +1,4 @@
-package shitarabato3
+package shitarabatogit
 
 import messageutil.CommentedMessageData
 import messageutil.MutableCommented
