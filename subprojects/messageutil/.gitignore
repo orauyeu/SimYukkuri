@@ -1,2 +1,6 @@
 # Shitaraba edition message
 /shitaraba/
+
+# Built files
+/osdn/*
+!/osdn/old/
