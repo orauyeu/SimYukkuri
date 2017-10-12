@@ -6,7 +6,7 @@ package messageutil
  * @param love プレイヤーに対する愛情.
  */
 data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasOkurumi: Boolean) {
-    constructor(): this(Growth.ALL, false, false, false, Love.ALL, false)
+    constructor() : this(Growth.ALL, false, false, false, Love.ALL, false)
 
     override fun toString(): String {
         return "Statistics(${this.toSimpleString()})"
@@ -67,11 +67,21 @@ data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged:
 
 /** ゆっくりの成長段階. */
 enum class Growth {
-    BABY_OR_CHILD { override fun toString(): String = "babyOrChild" },
-    BABY { override fun toString(): String = "baby" },
-    CHILD { override fun toString(): String = "child" },
-    ADULT { override fun toString(): String = "adult" },
-    ALL { override fun toString(): String = "all" };
+    BABY_OR_CHILD {
+        override fun toString(): String = "babyOrChild"
+    },
+    BABY {
+        override fun toString(): String = "baby"
+    },
+    CHILD {
+        override fun toString(): String = "child"
+    },
+    ADULT {
+        override fun toString(): String = "adult"
+    },
+    ALL {
+        override fun toString(): String = "all"
+    };
 
     companion object {
         fun parse(s: String): Growth {
@@ -90,7 +100,13 @@ enum class Growth {
 
 /** ゆっくりのプレイヤーへの愛情度. */
 enum class Love {
-    HATE { override fun toString(): String = "hate" },
-    LOVE { override fun toString(): String = "love" },
-    ALL { override fun toString(): String = "all" }
+    HATE {
+        override fun toString(): String = "hate"
+    },
+    LOVE {
+        override fun toString(): String = "love"
+    },
+    ALL {
+        override fun toString(): String = "all"
+    }
 }

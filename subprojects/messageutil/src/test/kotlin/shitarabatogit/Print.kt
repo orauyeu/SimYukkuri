@@ -1,14 +1,14 @@
 package shitarabatogit
 
 import messageutil.messageDataToString
+import messageutil.messageutilDir
 import messageutil.renameCommentedMessages
 import messageutil.zipBabyChild
 import java.nio.file.Files
-import java.nio.file.Paths
 
 /** kakojo_oldディレクトリ内のセリフファイルを新しい形式に直してダンプしたものをプリントする. */
 fun main(args: Array<String>) {
-    for (oldFilePath in Files.list(Paths.get("shitaraba/old"))) {
+    for (oldFilePath in Files.list(messageutilDir.resolve("shitaraba/old"))) {
         println(oldFilePath)
         val messageString = try {
             parseShitarabaMessage(oldFilePath, strict = false)

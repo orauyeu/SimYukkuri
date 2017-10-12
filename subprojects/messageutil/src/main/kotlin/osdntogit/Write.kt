@@ -1,11 +1,11 @@
 package osdntogit
 
+import messageutil.messageutilDir
 import messageutil.myYaml
 import messageutil.renameMessages
 import messageutil.writeClassSource
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 
 /**
  * OSDN版のセリフファイルをYAMLに変換したものから, 新形式のセリフファイルとMessageクラスのソースファイルを作成する.
@@ -14,17 +14,18 @@ import java.nio.file.Paths
  * その後, osdn/new内のまりさのセリフデータからMessagesクラスのソースファイルを作成し, osdnディレクトリに保存する.
  */
 fun main(args: Array<String>) {
-    Paths.get("osdn").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("osdn/new").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("osdn/old").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("osdn").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("osdn/new").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("osdn/old").let { if (Files.notExists(it)) Files.createDirectory(it) }
 
-    writeOsdnMessages(Paths.get("osdn/new"), Paths.get("osdn/old"))
-    writeClassSource(Paths.get("osdn"), Paths.get("osdn/new/marisa.yml"))
+    writeOsdnMessages(messageutilDir.resolve("osdn/new"), messageutilDir.resolve("osdn/old"))
+    writeClassSource(messageutilDir.resolve("osdn"), messageutilDir.resolve("osdn/new/marisa.yml"))
 }
 
 /** [readDir]内のOSDN版形式のセリフファイルをYAMLに変換したものを, 新しい形式に変換して[writeDir]に保存する. */
 fun writeOsdnMessages(writeDir: Path, readDir: Path) {
     for (oldFilePath in Files.list(readDir)) {
+        println(oldFilePath)
         val (paramData, rawMessageData) = reformatOsdnMessage(oldFilePath)
         val messageString = rawMessageData
             .let { renameMessages(it) }

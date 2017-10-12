@@ -1,12 +1,8 @@
 package shitarabatogit
 
-import messageutil.messageDataToString
-import messageutil.renameCommentedMessages
-import messageutil.writeClassSource
-import messageutil.zipBabyChild
+import messageutil.*
 import java.nio.file.Files
 import java.nio.file.Path
-import java.nio.file.Paths
 
 // 重いのを直せるなら直す.
 /**
@@ -16,19 +12,19 @@ import java.nio.file.Paths
  * その後, shitaraba/newおよびshitaraba/new_nora内のまりさのセリフデータからMessagesクラスのソースファイルを作成し, shitarabaディレクトリに保存する.
  */
 fun main(args: Array<String>) {
-    Paths.get("shitaraba").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("shitaraba/new").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("shitaraba/new_nora").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("shitaraba/old").let { if (Files.notExists(it)) Files.createDirectory(it) }
-    Paths.get("shitaraba/old_nora").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("shitaraba").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("shitaraba/new").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("shitaraba/new_nora").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("shitaraba/old").let { if (Files.notExists(it)) Files.createDirectory(it) }
+    messageutilDir.resolve("shitaraba/old_nora").let { if (Files.notExists(it)) Files.createDirectory(it) }
 
-    writeShitarabaMessages(Paths.get("shitaraba/new"), Paths.get("shitaraba/old"))
-    writeShitarabaMessages(Paths.get("shitaraba/new_nora"), Paths.get("shitaraba/old_nora"))
+    writeShitarabaMessages(messageutilDir.resolve("shitaraba/new"), messageutilDir.resolve("shitaraba/old"))
+    writeShitarabaMessages(messageutilDir.resolve("shitaraba/new_nora"), messageutilDir.resolve("shitaraba/old_nora"))
     writeClassSource(
-            Paths.get("shitaraba"),
-            Paths.get("shitaraba/new/marisa.yml"),
-            Paths.get("shitaraba/new/marisa_event.yml"),
-            Paths.get("shitaraba/new_nora/marisa_event.yml")
+            messageutilDir.resolve("shitaraba"),
+            messageutilDir.resolve("shitaraba/new/marisa.yml"),
+            messageutilDir.resolve("shitaraba/new/marisa_event.yml"),
+            messageutilDir.resolve("shitaraba/new_nora/marisa_event.yml")
     )
 }
 
