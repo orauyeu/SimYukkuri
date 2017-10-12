@@ -71,5 +71,10 @@
 * https://qiita.com/SUZUKI_Masaya/items/6476dbbcb3e369640c78
 * chromeの場合はデフォルトテーマをYetAnotherGithubにするのがきれいなのでおすすめ.
 
+### しむゆっくり開発の上でのIntelliJ IDEAのおすすめプラグイン
+- Git
+- GitHub
+- Markdown Navigator
+
 ### 注意
 * GradleのJVMにJava9を設定するとdokkaがうまく動かない（プロジェクトのSDKはJava9でも問題ない）
