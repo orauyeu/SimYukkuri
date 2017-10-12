@@ -14,17 +14,17 @@
 ## [Unreleased]
 
 ### 追加
-- Statisticsクラスを作成した.
-- Commentedクラスを作成した.
-- snakeyamlの設定をまとめたYamlSetting.ktを作成した.
+- `Statistics`クラスを作成した.
+- `Commented`クラスを作成した.
+- snakeyamlの設定をまとめた`YamlSetting.kt`を作成した.
 - OSDN版のセリフファイルを新形式に変換する関数を作成した.
-- セリフからMessagesクラスのソースを大雑把に作成する関数を作成した.
+- セリフから`Messages`クラスのソースを大雑把に作成する関数を作成した.
 - したらば版のセリフデータを新形式のデータに変換する関数を作成した.
 - コメント付きセリフデータをYAML文字列に変換する関数を作成した.
 - セリフ名を変更する関数を作成した.
 
 ### 変更
-- OSDN版のセリフファイルをyamlに変換
+- OSDN版のセリフファイルをYAMLに変換
 - OSDN版のセリフファイルのRudeHangryをRudeHungryに修正.
 - OSDN版のセリフファイルのSadnessForYungerSisterをSadnessForYoungerSisterに修正.
 
