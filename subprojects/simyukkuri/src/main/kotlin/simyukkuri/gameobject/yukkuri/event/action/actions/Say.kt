@@ -10,7 +10,7 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
 /**
  * 発言アクション.
  *
- * 他のアクションを遮らずに発言させたい場合は[gameobject.yukkuri.part.Message]クラスを利用する.
+ * 他のアクションを遮らずに発言させたい場合は[simyukkuri.gameobject.yukkuri.statistic.statistics.Message]を利用する.
  *
  * @constructor セリフを指定された体勢で数秒表示するアクションを返す.
  */

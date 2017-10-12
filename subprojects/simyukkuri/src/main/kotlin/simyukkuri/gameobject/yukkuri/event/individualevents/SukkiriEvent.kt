@@ -20,8 +20,8 @@ class SukkiriEvent(self: YukkuriStat, gameScene: GameScene) : IndividualEvent {
     var currentEvent: IndividualEvent
 
     init {
-        if (self.mate != null)
-            target = self.mate
+        if (self.partner != null)
+            target = self.partner
         else
             target = gameScene.yukkuriNearestTo(self)
 

@@ -1,344 +1,337 @@
-WantFood:
-  !type 'baby':
+findsFood:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-NoFood:
-  !type 'baby':
+wantsFood:
+  !stats 'baby':
   - ゆぅ-、、、
-  !type 'child':
+  !stats 'child':
   - ゆぅ-、、、
-  !type 'adult':
+  !stats 'adult':
   - ゆぅ-、、、
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆぅ-、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆぅ-、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆぅ-、、、
-Excite:
-  !type 'baby':
+sexuallyExcited:
+  !stats 'baby':
   - ゆっぴぃー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴぃー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴぃー！
-Relax:
-  !type 'baby':
+relaxed:
+  !stats 'baby':
   - ゆーゆー
-  !type 'child':
+  !stats 'child':
   - ゆーゆー
-  !type 'adult':
+  !stats 'adult':
   - ゆーゆー
-FuriFuri:
-  !type 'baby':
+furifuri:
+  !stats 'baby':
   - ゆっゆっ
-  !type 'child':
+  !stats 'child':
   - ゆっゆっ
-  !type 'adult':
+  !stats 'adult':
   - ゆっゆっ
-Wakeup:
-  !type 'baby':
+wakesUp:
+  !stats 'baby':
   - ゆぅーゆぅー
-  !type 'child':
+  !stats 'child':
   - ゆぅーゆぅー
-  !type 'adult':
+  !stats 'adult':
   - ゆぅーゆぅー
-Sleep:
-  !type 'baby':
+sleeping:
+  !stats 'baby':
   - ゆーゆー
-  !type 'child':
+  !stats 'child':
   - ゆーゆー
-  !type 'adult':
+  !stats 'adult':
   - ゆーゆー
-Scream:
-  !type 'baby':
+screams:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆっぴー！
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆっぴー！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆっぴー！
-Scare:
-  !type 'baby':
+scared:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆっぴー！
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆっぴー！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆっぴー！
-ScareRapist:
-  !type 'baby':
+scaredAtRaper:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆっぴー！
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆっぴー！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆっぴー！
-Alarm:
-  !type 'baby':
+alarmed:
+  !stats 'baby':
   - ゆぅー、、、
-  !type 'child':
+  !stats 'child':
   - ゆぅー、、、
-  !type 'adult':
+  !stats 'adult':
   - ゆぅー、、、
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆぅー、、、
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆぅー、、、
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆぅー、、、
-Dying:
-  !type 'baby':
+killedInstantly:
+  !stats 'baby':
   - ゆぴっ！
-  !type 'child':
+  !stats 'child':
   - ゆぴっ！
-  !type 'adult':
+  !stats 'adult':
   - ゆぴっ！
-Dead:
-  !type 'baby':
+dies:
+  !stats 'baby':
   - ゆ、ゆ、ゆ、、、
-  !type 'child':
+  !stats 'child':
   - ゆ、ゆ、ゆ、、、
-  !type 'adult':
+  !stats 'adult':
   - ゆ、ゆ、ゆ、、、
-Eating:
-  !type 'baby':
+eating:
+  !stats 'baby':
   - くっちゃくっちゃ
-  !type 'child':
+  !stats 'child':
   - くっちゃくっちゃ
-  !type 'adult':
+  !stats 'adult':
   - くっちゃくっちゃ
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - くっちゃくっちゃ
-  !type 'child, damage':
+  !stats 'child, damage':
   - くっちゃくっちゃ
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - くっちゃくっちゃ
-EatingShit:
-  !type 'baby':
+eatingPoo:
+  !stats 'baby':
   - くっちゃくっちゃ
-  !type 'child':
+  !stats 'child':
   - くっちゃくっちゃ
-  !type 'adult':
+  !stats 'adult':
   - くっちゃくっちゃ
-EatingBitter:
-  !type 'baby':
+hasEatenBitter:
+  !stats 'baby':
   - くっちゃくっちゃ、、、ゆぴー！
-  !type 'child':
+  !stats 'child':
   - くっちゃくっちゃ、、、ゆぴー！
-  !type 'adult':
+  !stats 'adult':
   - くっちゃくっちゃ、、、ゆぴー！
-Full:
-  !type 'baby':
+getsFull:
+  !stats 'baby':
   - ゆぴ
-  !type 'child':
+  !stats 'child':
   - ゆぴ
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ
-Healing:
-  !type 'baby':
+takesSweets:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆっぴー！
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆっぴー！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆっぴー！
-Sukkiri:
-  !type 'baby':
+hasSukkiried:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-Birth:
-  !type 'baby':
+born:
+  !stats 'baby':
   - ゆぴっゆぴっ！
-WantShit:
-  !type 'baby':
+startsToPoop:
+  !stats 'baby':
   - ゆぴ〜
-  !type 'child':
+  !stats 'child':
   - ゆぴ〜
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ〜
-Wetting:
-  !type 'baby':
+needsToPoop:
+  !stats 'baby':
   - ゆっぴ〜！
-  !type 'child':
+  !stats 'child':
   - ゆっぴ〜！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴ〜！
-Shitting:
-  !type 'baby':
+hasPooped:
+  !stats 'baby':
   - ゆっぴ〜！
-  !type 'child':
+  !stats 'child':
   - ゆっぴ〜！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴ〜！
-Wetted:
-  !type 'baby':
+leaksPoo:
+  !stats 'baby':
   - ゆっぴ〜！
-  !type 'child':
+  !stats 'child':
   - ゆっぴ〜！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴ〜！
-SuriSuri:
-  !type 'baby':
+surisuri:
+  !stats 'baby':
   - ゆ〜ゆ〜ゆ〜
-  !type 'child':
+  !stats 'child':
   - ゆ〜ゆ〜ゆ〜
-  !type 'adult':
+  !stats 'adult':
   - ゆ〜ゆ〜ゆ〜
-PeroPero:
-  !type 'baby':
+peropero:
+  !stats 'baby':
   - ゆーぴゃゆーぴゃ
-  !type 'child':
+  !stats 'child':
   - ゆーぴゃゆーぴゃ
-  !type 'adult':
+  !stats 'adult':
   - ゆーぴゃゆーぴゃ
-Breeding:
-  !type 'baby':
-  - ゆ、ゆ、、、
-  !type 'child':
-  - ゆ、ゆ、、、
-  !type 'adult':
-  - ゆ、ゆ、、、
-Breed:
-  !type 'baby':
+bearing:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-Abort:
-  !type 'baby':
+lamentsForAbortingBaby:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-HateShit:
-  !type 'baby':
+complainsAboutPoo:
+  !stats 'baby':
   - ゆぴー！
-  !type 'child':
+  !stats 'child':
   - ゆぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆぴー！
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆぴー！
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆぴー！
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆぴー！
-Hungry:
-  !type 'baby':
+hungry:
+  !stats 'baby':
   - ゆ、ゆ、ゆ
-  !type 'child':
+  !stats 'child':
   - ゆ、ゆ、ゆ
-  !type 'adult':
+  !stats 'adult':
   - ゆ、ゆ、ゆ
-  !type 'baby, damage':
+  !stats 'baby, damage':
   - ゆ、ゆ、ゆ
-  !type 'child, damage':
+  !stats 'child, damage':
   - ゆ、ゆ、ゆ
-  !type 'adult, damage':
+  !stats 'adult, damage':
   - ゆ、ゆ、ゆ
-LostAccessory:
-  !type 'baby':
+losesOkazari:
+  !stats 'baby':
   - ''
-  !type 'child':
+  !stats 'child':
   - ''
-  !type 'adult':
+  !stats 'adult':
   - ''
-HateYukkuri:
-  !type 'baby':
+despisesYukkuriHavingNoOkazari:
+  !stats 'baby':
   - ゆっゆっゆっ
-  !type 'child':
+  !stats 'child':
   - ゆっゆっゆっ
-  !type 'adult':
+  !stats 'adult':
   - ゆっゆっゆっ
-Flying:
-  !type 'baby':
+saysLikeFlying:
+  !stats 'baby':
   - ゆっぴゃー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴゃー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴゃー！
-SadnessForChild:
-  !type 'baby':
+childDies:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆぴ？
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ？
-SadnessForPartner:
-  !type 'baby':
+partnerDies:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆぴ？
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ？
-SadnessForElderSister:
-  !type 'baby':
+elderSisterDies:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆぴ？
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ？
-SadnessForYoungerSister:
-  !type 'baby':
+youngerSisterDies:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆぴ？
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ？
-BlockedByWall:
-  !type 'baby':
+blockedByWall:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆぴ？
-  !type 'adult':
+  !stats 'adult':
   - ゆぴ？
-GetTreasure:
-  !type 'baby':
+getsTreasure:
+  !stats 'baby':
   - ゆぴ？
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-LostTreasure:
-  !type 'baby':
+treasureTaken:
+  !stats 'baby':
   - ゆっぴー！
-  !type 'child':
+  !stats 'child':
   - ゆっぴー！
-  !type 'adult':
+  !stats 'adult':
   - ゆっぴー！
-NobiNobi:
-  !type 'baby':
+nobinobi:
+  !stats 'baby':
   - ゆぴー
-  !type 'child':
+  !stats 'child':
   - ゆぴー
-  !type 'adult':
+  !stats 'adult':
   - ゆぴー

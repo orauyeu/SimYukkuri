@@ -1,8 +1,8 @@
 package simyukkuri.gameobject
 
-import com.sun.javafx.iio.ImageStorage
+import simyukkuri.resource.Images
 
 /** 床置オブジェクト */
 abstract class Rug : GameObject {
-    abstract val images: ImageStorage
+    abstract val images: Images
 }
