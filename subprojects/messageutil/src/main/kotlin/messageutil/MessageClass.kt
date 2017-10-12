@@ -6,11 +6,13 @@ import java.nio.file.Path
 /** メッセージを保管するクラスの名前 */
 val messageClassName = "Messages"
 
+// TODO: BABY_OR_CHILDをどうにかする.
 /** メッセージデータに対応する, セリフ毎にプロパティを持つクラスの文字列を生成する. */
 fun messageDataToPojoString(msgData: Map<String, Any?>): String = buildString {
     appendln("class $messageClassName {")
+    appendln("    val messageMap: Map<String, Map<Statistics, List<String>>>")
     for ((messageName) in msgData)
-        appendln("    val $messageName: Map<Statistics, List<String>>")
+        appendln("    fun $messageName(msgStats: MessageStatistics): String? = messageMap[\"$messageName\"]?.get(stat)?.randomElement()")
     append("}")
 }
 
