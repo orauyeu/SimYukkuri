@@ -30,7 +30,7 @@ internal fun Condition.contains(attr: String): Boolean {
     }
 
     if (attr == "pants")
-        return hasOkurumi
+        return hasWrapper
 
     throw Exception("不正な属性名です: $attr")
 }
@@ -67,7 +67,7 @@ internal fun Condition.added(attr: String): Condition {
     }
 
     if (attr == "pants")
-        return this.copy(hasOkurumi = true)
+        return this.copy(hasWrapper = true)
 
     throw Exception("不正な属性名です: $attr")
 }
@@ -100,7 +100,7 @@ internal fun Condition.removed(attr: String): Condition {
     }
 
     if (attr == "pants")
-        return this.copy(hasOkurumi = false)
+        return this.copy(hasWrapper = false)
 
     if (attr == "normal")
         return this

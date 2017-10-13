@@ -1,11 +1,16 @@
 package messageutil
 
 /**
- * セリフに関わるゆっくりの状態のタイプ.
+ * セリフファイル用のゆっくりに対する条件.
  *
- * @param love プレイヤーに対する愛情.
+ * @property growth 成長段階
+ * @property isImmoral ゲスか
+ * @property isDamaged ダメージを受けているか
+ * @property isPooSlave うんうん奴隷か
+ * @property love プレイヤーに対する愛情
+ * @property hasWrapper おくるみを着ているか
  */
-data class Condition(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasOkurumi: Boolean) {
+data class Condition(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasWrapper: Boolean) {
     override fun toString(): String {
         return "Condition(${this.toSimpleString()})"
     }
@@ -23,7 +28,7 @@ data class Condition(val growth: Growth, val isImmoral: Boolean, val isDamaged: 
             builder.append(", $pooSlave")
         if (love != Love.ALL)
             builder.append(", $love")
-        if (hasOkurumi)
+        if (hasWrapper)
             builder.append(", $wrapper")
         return builder.toString()
     }
