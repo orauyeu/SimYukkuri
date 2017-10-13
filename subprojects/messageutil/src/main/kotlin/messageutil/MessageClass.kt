@@ -29,7 +29,7 @@ fun writeClassSource(writeDir: Path, vararg messagePaths: Path) {
                     .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Statistics, List<String>>>) }
                 for (i in 1 until messagePaths.size) {
                     Files.newInputStream(messagePaths[i])
-                        .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as MessageData) }
+                        .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, Map<Statistics, List<String>>>) }
                         .let { messageData.putAll(it) }
                 }
                 messageDataToPojoString(messageData)

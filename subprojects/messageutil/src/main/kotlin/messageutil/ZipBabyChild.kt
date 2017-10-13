@@ -1,43 +1,42 @@
 package messageutil
 
-// TODO: !!をなくす.
+// TODO: コメントなし版を作る.
 /** 赤ゆと子ゆで重複している発言を[Growth.BABY_OR_CHILD]にまとめる. */
-fun zipBabyChild(msgData: Map<String, Commented<Map<Statistics, Commented<List<String>>>>>): CommentedMessageData =
-    linkedMapOf<String, Commented<LinkedHashMap<Statistics, MutableCommented<MutableList<String>>>>>().also {
-        for ((key, commentedTypeToCommentedMessages) in msgData) {
-            val (keyComment, typeToCommentedMessages) = commentedTypeToCommentedMessages
-            it.getOrPut(key) { Commented(keyComment, linkedMapOf()) }
+fun zipBabyChild(msgData: CommentedMessageData): CommentedMessageData =
+    linkedMapOf<String, Commented<LinkedHashMap<Statistics, MutableList<String>>>>().also {
+        for ((key, commentedStatsToMsgs) in msgData) {
+            val (commentLines, statsToMsgs) = commentedStatsToMsgs
+            val newStatsToMsgs = linkedMapOf<Statistics, MutableList<String>>()
+            it.put(key, Commented(commentLines, newStatsToMsgs))
 
-            for ((type, commentedMessages) in typeToCommentedMessages) {
-                val (typeComment, messages) = commentedMessages
+            for ((stats, msgs) in statsToMsgs) {
                 when {
-                    type.growth == Growth.BABY -> for (message in messages) {
+                    stats.growth == Growth.BABY -> {
                         // 同じメッセージがCHILDにもあるときBABY_OR_CHILDに追加
-                        val toChild = type.copy(growth = Growth.CHILD)
-                        if (toChild in typeToCommentedMessages && message in typeToCommentedMessages[toChild]!!.body) {
-                            val toBabyOrChild = type.copy(growth = Growth.BABY_OR_CHILD)
-                            it[key]!!.body.getOrPut(toBabyOrChild) { MutableCommented(typeComment, mutableListOf()) }
-                            it[key]!!.body[toBabyOrChild]!!.body.add(message)
-                        } else {
-                            it[key]!!.body.getOrPut(type) { MutableCommented(typeComment, mutableListOf()) }
-                            it[key]!!.body[type]!!.body.add(message)
+                        val toBabyOrChild = stats.copy(growth = Growth.BABY_OR_CHILD)
+                        val toChild = stats.copy(growth = Growth.CHILD)
+                        for (msg in msgs) {
+                            if (toChild in statsToMsgs && msg in statsToMsgs[toChild]!!) {
+                                if (toBabyOrChild in newStatsToMsgs && msg in newStatsToMsgs[toBabyOrChild]!!) continue
+                                newStatsToMsgs.getOrPut(toBabyOrChild) { mutableListOf() }.add(msg)
+                            } else
+                                newStatsToMsgs.getOrPut(stats) { mutableListOf() }.add(msg)
                         }
                     }
-                    type.growth == Growth.CHILD -> for (message in messages) {
+                    stats.growth == Growth.CHILD -> {
                         // 同じメッセージがBABYにもあるときはコメントだけ追加
-                        val toBaby = type.copy(growth = Growth.BABY)
-                        if (toBaby in typeToCommentedMessages && message in typeToCommentedMessages[toBaby]!!.body) {
-                            val toBabyOrChild = type.copy(growth = Growth.BABY_OR_CHILD)
-                            it[key]!!.body[toBabyOrChild]!!.addCommentLine(typeComment)
-                        } else {
-                            it[key]!!.body.getOrPut(type) { MutableCommented(typeComment, mutableListOf()) }
-                            it[key]!!.body[type]!!.body.add(message)
+                        val toBabyOrChild = stats.copy(growth = Growth.BABY_OR_CHILD)
+                        val toBaby = stats.copy(growth = Growth.BABY)
+                        for (msg in msgs) {
+                            if (toBaby in statsToMsgs && msg in statsToMsgs[toBaby]!!) {
+                                if (toBabyOrChild in newStatsToMsgs && msg in newStatsToMsgs[toBabyOrChild]!!) continue
+                                newStatsToMsgs.getOrPut(toBabyOrChild) { mutableListOf() }.add(msg)
+                            } else
+                                newStatsToMsgs.getOrPut(stats) { mutableListOf() }.add(msg)
                         }
                     }
-                    else -> for (message in messages) {
-                        it[key]!!.body.getOrPut(type) { MutableCommented(typeComment, mutableListOf()) }
-                        it[key]!!.body[type]!!.body.add(message)
-                    }
+                    else -> for (message in msgs)
+                        it[key]!!.body.getOrPut(stats) { mutableListOf() }.add(message)
                 }
             }
         }

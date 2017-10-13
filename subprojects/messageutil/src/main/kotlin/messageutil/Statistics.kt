@@ -1,13 +1,12 @@
 package messageutil
 
+// TODO: Conditionにリネーム.
 /**
  * セリフに関わるゆっくりの状態のタイプ.
  *
  * @param love プレイヤーに対する愛情.
  */
 data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasOkurumi: Boolean) {
-    constructor() : this(Growth.ALL, false, false, false, Love.ALL, false)
-
     override fun toString(): String {
         return "Statistics(${this.toSimpleString()})"
     }
@@ -61,8 +60,18 @@ data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged:
             val hasWrapper = s.contains(wrapper)
             return Statistics(growth, isImmoral, isDamaged, isPoopSlave, love, hasWrapper)
         }
+
+        fun values(): List<Statistics> = mutableListOf<Statistics>().apply {
+            val bools = arrayOf(false, true)
+            for (growth in Growth.values()) for (isImmoral in bools) for (isDamaged in bools)
+                for (isPooSlave in bools) for (love in Love.values()) for (hasOkurumi in bools)
+                    add(Statistics(growth, isImmoral, isDamaged, isPooSlave, love, hasOkurumi))
+        }
     }
 }
+
+/** デフォルトの状態 */
+val defaultStats: Statistics = Statistics(Growth.ALL, false, false, false, Love.ALL, false)
 
 
 /** ゆっくりの成長段階. */

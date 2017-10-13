@@ -6,11 +6,14 @@ import Root
 typealias MessageData = Map<String, Map<Statistics, List<String>>>
 
 /** ゆっくり一匹分のコメント付きのメッセージデータ */
-typealias CommentedMessageData = Map<String, Commented<Map<Statistics, Commented<List<String>>>>>
+typealias CommentedMessageData = Map<String, Commented<Map<Statistics, List<String>>>>
 
-/** 空のミュータブルなメッセージデータを返す. */
-fun mutableCommentedMessageData() = linkedMapOf<String, MutableCommented<LinkedHashMap<Statistics, MutableCommented<MutableList<String>>>>>()
+fun mutableMessageData() = linkedMapOf<String, LinkedHashMap<Statistics, MutableList<String>>>()
 
+/** 空のミュータブルなコメント付きメッセージデータを返す. */
+fun mutableCommentedMessageData() = linkedMapOf<String, MutableCommented<LinkedHashMap<Statistics, MutableList<String>>>>()
+
+// JARとして配布したくなったら外部ファイルとして取ってこれるようにする.
 /** セリフ名を変更前から変更後に移すマップ */
 val renameMap: Map<String, String> by lazy {
     val renameMap = Root::class.java.getResourceAsStream("rename.yml").use {
@@ -36,7 +39,7 @@ fun renameMessages(msgData: MessageData): MessageData =
 
 /** セリフ名を変更する. */
 fun renameCommentedMessages(msgData: CommentedMessageData): CommentedMessageData =
-    linkedMapOf<String, Commented<Map<Statistics, Commented<List<String>>>>>().apply {
+    linkedMapOf<String, Commented<Map<Statistics, List<String>>>>().apply {
         msgData.forEach { name, value ->
             try {
                 put(renameMap[name]!!, value)
@@ -51,29 +54,21 @@ fun messageDataToString(msgData: CommentedMessageData): String {
     return buildString {
         var isFirst = true
         for ((key, commentedTypeToCommentedMessages) in msgData) {
-            val (keyComment, typeToCommentedMessages) = commentedTypeToCommentedMessages
+            val (commentLines, statsToMsgs) = commentedTypeToCommentedMessages
             if (isFirst)
                 isFirst = false
             else
                 appendln()
 
-            if (keyComment.isNotEmpty())
-                for (line in keyComment.split("\n"))
-                // なぜかコメントの先頭に空白が入るのでトリミング
+            if (commentLines.isNotEmpty())
+                for (line in commentLines)
+                    // なぜかコメントの先頭に空白が入るのでトリミング
                     appendln("# ${line.trim { it <= ' ' }}")
-
             appendln("$key:")
-
-            for ((type, commentedMessages) in typeToCommentedMessages) {
-                val (typeComment, messages) = commentedMessages
-                if (typeComment.isNotEmpty())
-                    for (line in typeComment.split("\n"))
-                        appendln("  # $line")
-
-                appendln("  $statsTag '${type.toSimpleString()}':")
-
-                for (message in messages)
-                    appendln("  - '$message'")
+            for ((stats, msgs) in statsToMsgs) {
+                appendln("  $statsTag '${stats.toSimpleString()}':")
+                for (msg in msgs)
+                    appendln("  - '$msg'")
             }
         }
         // 最後の改行は消す.

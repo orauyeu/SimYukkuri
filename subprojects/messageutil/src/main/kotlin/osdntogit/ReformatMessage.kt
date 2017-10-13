@@ -1,52 +1,48 @@
 package osdntogit
 
-import messageutil.Growth
-import messageutil.Love
-import messageutil.Statistics
-import messageutil.myYaml
+import messageutil.*
 import java.io.InputStream
 import java.nio.file.Files
 import java.nio.file.Path
 
 /** OSDN形式のゆっくりのデータをパラメータとセリフのペアに分割し, セリフデータを現行形式に変換する. */
-fun reformatOsdnMessage(path: Path): Pair<Map<String, Any>, Map<String, Map<Statistics, List<String>>>> =
+fun reformatOsdnMessage(path: Path): Pair<Map<String, Any>, MessageData> =
     Files.newInputStream(path).use { reformatOsdnMessage(it) }
 
 /** OSDN形式のゆっくりのデータをパラメータとセリフのペアに分割し, セリフデータを現行形式に変換する. */
-fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, Map<String, Map<Statistics, List<String>>>> {
+fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageData> {
     val yukkuriData = @Suppress("UNCHECKED_CAST") (myYaml.load(input) as Map<String, Any>)
     val params: MutableMap<String, Any> = mutableMapOf()
-    var messageWithDamageGrowth: Map<String, List<List<String>>> = emptyMap()
+    var keyToDamageToGrowthToMsgs: Map<String, List<List<String>>> = emptyMap()
     for ((key, value) in yukkuriData) {
         if (key == "dialogue")
-            messageWithDamageGrowth = @Suppress("UNCHECKED_CAST") (value as Map<String, List<List<String>>>)
+            keyToDamageToGrowthToMsgs = @Suppress("UNCHECKED_CAST") (value as Map<String, List<List<String>>>)
         else
             params.put(key, value)
     }
 
-    val newMessagesWithKeyType = LinkedHashMap<String, LinkedHashMap<Statistics, MutableList<String>>>()
-    for ((rawMessageKey, messagesWithDamageGrowth) in messageWithDamageGrowth) {
+    val newMessageData = mutableMessageData()
+    for ((rawMsgKey, damageToGrowthToMsgs) in keyToDamageToGrowthToMsgs) {
         val isImmoral: Boolean
-        // RudeHogeという名前のキーはHogeに置き換える
-        val messageKey: String
-        if (rawMessageKey.contains("Rude")) {
+        // RudeHogeという名前はHogeに置き換える
+        val msgKey: String
+        if (rawMsgKey.contains("Rude")) {
             isImmoral = true
-            messageKey = rawMessageKey.substring(4)
+            msgKey = rawMsgKey.substring(4)
         } else {
             isImmoral = false
-            messageKey = rawMessageKey
+            msgKey = rawMsgKey
         }
 
-        newMessagesWithKeyType.getOrPut(messageKey) { linkedMapOf() }
-        val newMessagesWithType = newMessagesWithKeyType[messageKey]!!
+        val newStatsToMsgs = newMessageData.getOrPut(msgKey) { linkedMapOf() }
 
-        for (damageIndex in messagesWithDamageGrowth.indices) {
-            val messagesWithGrowth = messagesWithDamageGrowth[damageIndex]
+        for (damageIndex in damageToGrowthToMsgs.indices) {
+            val growthToMsgs = damageToGrowthToMsgs[damageIndex]
 
             val isDamaged = damageIndex == 1
 
-            for (growthIndex in messagesWithGrowth.indices) {
-                val message = messagesWithGrowth[growthIndex]
+            for (growthIndex in growthToMsgs.indices) {
+                val message = growthToMsgs[growthIndex]
 
                 val growth = when (growthIndex) {
                     0 -> Growth.BABY
@@ -55,12 +51,9 @@ fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, Map<String, 
                 }
                 val type = Statistics(growth, isImmoral, isDamaged, false, Love.ALL, false)
 
-                newMessagesWithType.getOrPut(type) { mutableListOf() }
-                val newMessages = newMessagesWithType[type]!!
-
-                newMessages.add(message)
+                newStatsToMsgs.getOrPut(type) { mutableListOf() }.add(message)
             }
         }
     }
-    return Pair(params, newMessagesWithKeyType)
+    return Pair(params, newMessageData)
 }
