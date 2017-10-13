@@ -34,7 +34,7 @@ fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageData>
             msgKey = rawMsgKey
         }
 
-        val newStatsToMsgs = newMessageData.getOrPut(msgKey) { linkedMapOf() }
+        val newCondToMsgs = newMessageData.getOrPut(msgKey) { linkedMapOf() }
 
         for (damageIndex in damageToGrowthToMsgs.indices) {
             val growthToMsgs = damageToGrowthToMsgs[damageIndex]
@@ -49,9 +49,9 @@ fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageData>
                     1 -> Growth.CHILD
                     else -> Growth.ADULT
                 }
-                val type = Statistics(growth, isImmoral, isDamaged, false, Love.ALL, false)
+                val type = Condition(growth, isImmoral, isDamaged, false, Love.ALL, false)
 
-                newStatsToMsgs.getOrPut(type) { mutableListOf() }.add(message)
+                newCondToMsgs.getOrPut(type) { mutableListOf() }.add(message)
             }
         }
     }

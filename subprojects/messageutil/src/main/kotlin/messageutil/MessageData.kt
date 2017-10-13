@@ -3,15 +3,15 @@ package messageutil
 import Root
 
 /** ゆっくり一匹分のメッセージデータ */
-typealias MessageData = Map<String, Map<Statistics, List<String>>>
+typealias MessageData = Map<String, Map<Condition, List<String>>>
 
 /** ゆっくり一匹分のコメント付きのメッセージデータ */
-typealias CommentedMessageData = Map<String, Commented<Map<Statistics, List<String>>>>
+typealias CommentedMessageData = Map<String, Commented<Map<Condition, List<String>>>>
 
-fun mutableMessageData() = linkedMapOf<String, LinkedHashMap<Statistics, MutableList<String>>>()
+fun mutableMessageData() = linkedMapOf<String, LinkedHashMap<Condition, MutableList<String>>>()
 
 /** 空のミュータブルなコメント付きメッセージデータを返す. */
-fun mutableCommentedMessageData() = linkedMapOf<String, MutableCommented<LinkedHashMap<Statistics, MutableList<String>>>>()
+fun mutableCommentedMessageData() = linkedMapOf<String, MutableCommented<LinkedHashMap<Condition, MutableList<String>>>>()
 
 // JARとして配布したくなったら外部ファイルとして取ってこれるようにする.
 /** セリフ名を変更前から変更後に移すマップ */
@@ -27,7 +27,7 @@ val renameMap: Map<String, String> by lazy {
 
 /** セリフ名を変更する. */
 fun renameMessages(msgData: MessageData): MessageData =
-    linkedMapOf<String, Map<Statistics, List<String>>>().apply {
+    linkedMapOf<String, Map<Condition, List<String>>>().apply {
         msgData.forEach { name, value ->
             try {
                 put(renameMap[name]!!, value)
@@ -39,7 +39,7 @@ fun renameMessages(msgData: MessageData): MessageData =
 
 /** セリフ名を変更する. */
 fun renameCommentedMessages(msgData: CommentedMessageData): CommentedMessageData =
-    linkedMapOf<String, Commented<Map<Statistics, List<String>>>>().apply {
+    linkedMapOf<String, Commented<Map<Condition, List<String>>>>().apply {
         msgData.forEach { name, value ->
             try {
                 put(renameMap[name]!!, value)
@@ -66,7 +66,7 @@ fun messageDataToString(msgData: CommentedMessageData): String {
                     appendln("# ${line.trim { it <= ' ' }}")
             appendln("$key:")
             for ((stats, msgs) in statsToMsgs) {
-                appendln("  $statsTag '${stats.toSimpleString()}':")
+                appendln("  $condTag '${stats.toSimpleString()}':")
                 for (msg in msgs)
                     appendln("  - '$msg'")
             }

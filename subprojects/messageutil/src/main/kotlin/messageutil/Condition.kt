@@ -1,14 +1,13 @@
 package messageutil
 
-// TODO: Conditionにリネーム.
 /**
  * セリフに関わるゆっくりの状態のタイプ.
  *
  * @param love プレイヤーに対する愛情.
  */
-data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasOkurumi: Boolean) {
+data class Condition(val growth: Growth, val isImmoral: Boolean, val isDamaged: Boolean, val isPooSlave: Boolean, val love: Love, val hasOkurumi: Boolean) {
     override fun toString(): String {
-        return "Statistics(${this.toSimpleString()})"
+        return "Condition(${this.toSimpleString()})"
     }
 
     /** 型や括弧を含まない文字列表現を返す. */
@@ -37,11 +36,11 @@ data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged:
         val wrapper = "wrapper"
 
         /**
-         *  文字列を[Statistics]オブジェクトとしてパースする.
+         *  文字列を[Condition]オブジェクトとしてパースする.
          *
          *  属性の順序は考慮されない. [growth]だけが必須.
          */
-        fun parse(s: String): Statistics {
+        fun parse(s: String): Condition {
             val growth = when {
                 s.contains(Growth.BABY_OR_CHILD.toString()) -> Growth.BABY_OR_CHILD
                 s.contains(Growth.BABY.toString()) -> Growth.BABY
@@ -58,20 +57,20 @@ data class Statistics(val growth: Growth, val isImmoral: Boolean, val isDamaged:
                 else -> Love.ALL
             }
             val hasWrapper = s.contains(wrapper)
-            return Statistics(growth, isImmoral, isDamaged, isPoopSlave, love, hasWrapper)
+            return Condition(growth, isImmoral, isDamaged, isPoopSlave, love, hasWrapper)
         }
 
-        fun values(): List<Statistics> = mutableListOf<Statistics>().apply {
+        fun values(): List<Condition> = mutableListOf<Condition>().apply {
             val bools = arrayOf(false, true)
             for (growth in Growth.values()) for (isImmoral in bools) for (isDamaged in bools)
                 for (isPooSlave in bools) for (love in Love.values()) for (hasOkurumi in bools)
-                    add(Statistics(growth, isImmoral, isDamaged, isPooSlave, love, hasOkurumi))
+                    add(Condition(growth, isImmoral, isDamaged, isPooSlave, love, hasOkurumi))
         }
     }
 }
 
 /** デフォルトの状態 */
-val defaultStats: Statistics = Statistics(Growth.ALL, false, false, false, Love.ALL, false)
+val emptyCondition: Condition = Condition(Growth.ALL, false, false, false, Love.ALL, false)
 
 
 /** ゆっくりの成長段階. */

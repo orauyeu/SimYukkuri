@@ -2,10 +2,10 @@ package shitarabatogit
 
 import messageutil.Growth
 import messageutil.Love
-import messageutil.Statistics
+import messageutil.Condition
 
 /** 指定された属性が含まれるかを返す. */
-internal fun Statistics.contains(attr: String): Boolean {
+internal fun Condition.contains(attr: String): Boolean {
     when (attr) {
         "baby" -> return growth == Growth.BABY
         "child" -> return growth == Growth.CHILD
@@ -36,7 +36,7 @@ internal fun Statistics.contains(attr: String): Boolean {
 }
 
 /** 属性を加える. */
-internal fun Statistics.added(attr: String): Statistics {
+internal fun Condition.added(attr: String): Condition {
     when (attr) {
         "baby" ->
             return this.copy(growth = Growth.BABY)
@@ -73,7 +73,7 @@ internal fun Statistics.added(attr: String): Statistics {
 }
 
 /** 属性を取り除く. */
-internal fun Statistics.removed(attr: String): Statistics {
+internal fun Condition.removed(attr: String): Condition {
     when (attr) {
         "baby" ->
             return this.copy(growth = Growth.ALL)

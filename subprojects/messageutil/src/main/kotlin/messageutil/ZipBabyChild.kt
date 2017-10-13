@@ -3,10 +3,10 @@ package messageutil
 // TODO: コメントなし版を作る.
 /** 赤ゆと子ゆで重複している発言を[Growth.BABY_OR_CHILD]にまとめる. */
 fun zipBabyChild(msgData: CommentedMessageData): CommentedMessageData =
-    linkedMapOf<String, Commented<LinkedHashMap<Statistics, MutableList<String>>>>().also {
+    linkedMapOf<String, Commented<LinkedHashMap<Condition, MutableList<String>>>>().also {
         for ((key, commentedStatsToMsgs) in msgData) {
             val (commentLines, statsToMsgs) = commentedStatsToMsgs
-            val newStatsToMsgs = linkedMapOf<Statistics, MutableList<String>>()
+            val newStatsToMsgs = linkedMapOf<Condition, MutableList<String>>()
             it.put(key, Commented(commentLines, newStatsToMsgs))
 
             for ((stats, msgs) in statsToMsgs) {

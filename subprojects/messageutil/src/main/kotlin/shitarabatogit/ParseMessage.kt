@@ -26,7 +26,7 @@ fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): Commented
     var lineNumber = 0
     var actionName = ""
     val comments = mutableListOf<String>()
-    var stats = defaultStats
+    var cond = emptyCondition
 
     input.bufferedReader().forEachLine {
         lineNumber += 1
@@ -56,10 +56,10 @@ fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): Commented
                 comments.clear()
                 actionName = ""
 
-                if (stats != defaultStats)
+                if (cond != emptyCondition)
                     if (strict)
-                        throw RuntimeException("閉じられていない属性があります at $lineNumber: ${stats.toSimpleString()}")
-                stats = defaultStats
+                        throw RuntimeException("閉じられていない属性があります at $lineNumber: ${cond.toSimpleString()}")
+                cond = emptyCondition
                 return@forEachLine
             }
 
@@ -82,10 +82,10 @@ fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): Commented
                 val openPos = 2
                 val closePos = line.indexOf('>')
                 val attr = line.substring(openPos, closePos)
-                if (!stats.contains(attr))
+                if (!cond.contains(attr))
                     if (strict)
                         throw Exception("対応する開始タグがありません at $lineNumber: $attr")
-                stats = stats.removed(attr)
+                cond = cond.removed(attr)
                 return@forEachLine
             }
 
@@ -94,7 +94,7 @@ fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): Commented
                 val openPos = 1
                 val closePos = line.indexOf('>')
                 val attr = line.substring(openPos, closePos)
-                stats = stats.added(attr)
+                cond = cond.added(attr)
                 return@forEachLine
             }
         }
@@ -102,7 +102,7 @@ fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): Commented
         // メッセージ本文
         else {
             msgData.getOrPut(actionName) { MutableCommented(linkedMapOf()) }
-                .body.getOrPut(stats) { mutableListOf<String>() }
+                .body.getOrPut(cond) { mutableListOf<String>() }
                 .add(line)
         }
     }

@@ -10,9 +10,9 @@ val messageClassName = "Messages"
 /** メッセージデータに対応する, セリフ毎にプロパティを持つクラスの文字列を生成する. */
 fun messageDataToPojoString(msgData: Map<String, Any?>): String = buildString {
     appendln("class $messageClassName {")
-    appendln("    val messageMap: Map<String, Map<Statistics, List<String>>>")
+    appendln("    val messageMap: Map<String, Map<Condition, List<String>>>")
     for ((messageName) in msgData)
-        appendln("    fun $messageName(msgStats: MessageStatistics): String? = messageMap[\"$messageName\"]?.get(stat)?.randomElement()")
+        appendln("    fun $messageName(msgCond: Condition): String? = messageMap[\"$messageName\"]?.get(stat)?.randomElement()")
     append("}")
 }
 
@@ -22,14 +22,14 @@ fun writeClassSource(writeDir: Path, vararg messagePaths: Path) {
         when (messagePaths.size) {
             0 -> ""
             1 -> Files.newInputStream(messagePaths[0])
-                .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Statistics, List<String>>>) }
+                .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Condition, List<String>>>) }
                 .let { messageDataToPojoString(it) }
             else -> run {
                 val messageData = Files.newInputStream(messagePaths[0])
-                    .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Statistics, List<String>>>) }
+                    .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Condition, List<String>>>) }
                 for (i in 1 until messagePaths.size) {
                     Files.newInputStream(messagePaths[i])
-                        .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, Map<Statistics, List<String>>>) }
+                        .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, Map<Condition, List<String>>>) }
                         .let { messageData.putAll(it) }
                 }
                 messageDataToPojoString(messageData)
