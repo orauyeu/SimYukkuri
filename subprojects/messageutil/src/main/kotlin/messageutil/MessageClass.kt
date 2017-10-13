@@ -29,6 +29,7 @@ abstract class Messages(name: String) {
 }
 */
 
+// TODO: ダメージを受けている版のメッセージがない場合, 通常版のメッセージで代用するなど欠けを補う.
 /** メッセージデータに対応する, セリフ毎にプロパティを持つクラスの文字列を生成する. */
 fun messageDataToPojoString(msgData: Map<String, Any?>): String = buildString {
     appendln("abstract class Messages(name: String) {\n" +
@@ -52,7 +53,7 @@ fun messageDataToPojoString(msgData: Map<String, Any?>): String = buildString {
             "    }" +
             "\n")
     for ((messageName) in msgData)
-        appendln("    fun $messageName(cond: Condition): String? = messageMap[\"$messageName\"]?.get(stat)?.randomElement()")
+        appendln("    fun $messageName(cond: Condition): String? = msgMap[\"$messageName\"]?.get(stat)?.randomElement()")
     append("}")
 }
 
