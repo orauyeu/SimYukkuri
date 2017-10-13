@@ -1,57 +1,58 @@
-# Changelog of "simyukkuri" Module
+# 「simyukkuri」モジュールの変更履歴
 
-All notable changes to this project will be documented in this file.
+このファイルは、このプロジェクトに関する重要な変更を全て記録したものです。
 
-The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
-and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+ファイル形式は [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) に基いています。
+またプロジェクトは [Semantic Versioning](http://semver.org/lang/ja/spec/v2.0.0.html) に準拠しています。
 
 
 **Read this in other languages:**
-- [日本語 (Japanese)](CHANGELOG.ja.md)
-- English : *this file*
+- 日本語 (Japanese) : *this file*
+- [English (英語)](CHANGELOG.en.md)
 
 
 ## [Unreleased]
 
-### Added
-- Added KDoc for all classes
-- Created class `Ai`
-- Renamed to `YukkuriStat` from interface `Yukkuri`, then created new interface `Yukkuri` having `YukkuriStat` and `Ai`
-- Created class `IndividualEvent` and `Action`, partialy implemented `actions`
-- Added resource `messages` to main resources
-- Implemented `Message` and related portions
-- Added class `MutableVectorXZ`
-- Almost reimplemented classes in `part` directory except `Terrarium` and `Message`
-- Added package `gameobject.yukkuri.factory`
+### 追加
+- KDocを全てのクラスにつけた
+- `Ai`クラス作成
+- `Yukkuri`インターフェースを`YukkuriStat`に改名し, 新たに`YukkuriStat`と`Ai`を持つ`Yukkuri`インターフェースを作った
+- `IndividualEvent`クラス, `Action`クラスを作成. `actions`の中身を一部を実装
+- mainリソースに`messages`リソースを追加
+- `Message`とそれにまつわる部分を実装
+- クラス`MutableVectorXZ`を追加
+- `parts`内のクラスを`Terrarium`と`Message`以外だいたい実装
+- `gameobject.yukkuri.factory`パッケージを作成
 
-### Changed
-- Renamed `Field` to `Scene` for merging "field" function in future
-- Changed to specify `Scene` size in the constructor. Untill now, initialized as `0.0` meaninglessly
-- Changed to specify Yukkuri's prameter constnats, `Scene` size, and `scene` of `GameLoop` in constructor
-- Decomposited `checkPartner` in `Terrarium`
-- Decomposited main part of `Body` into classes of the `parts` package
-- Changed GUI to JavaFX from Swing, implmented outline of GUI
-- Changed language to Kotlin from Java
-- Forked from original SimYukkuri at OSDN
+### 変更
+- initsディレクトリ内のファイルをJSONからYAMLに変換
+- 将来的に畑機能をマージするために`Field`を`Scene`に改名
+- `Scene`内の大きさを無意味に`0.0`で初期化してからセットするようにしていたが, コンストラクタで指定するようにした
+- ゆっくりのパラメータの定数や`Scene`の大きさや`GameLoop`の`scene`をコンストラクタで指定するようにした
+- `Terrarium`の`checkPartner`を分解
+- `Body`の主要な部分を`parts`パッケージ内のクラスに分解
+- GUIをSwingからJavaFXに移行し、GUIの大枠を実装
+- プログラミング言語をKotlinに移行
+- OSDNシムゆっくりから分岐
 
-### Removed
-- Removed class `Furifuri` and `FurifuriImpl`
-- Removed class `Vector3` and `Vector2`
+### 削除
+- `Furifuri`および`FurifuriImpl`を削除
+- クラス`Vector3`と`Vector2`を削除
 
-### Fixed
-- Fix typo at `geometry`
+### 修正
+- `geometry`の間違った英語を訂正
 
 <!--
-### Added
-for new features.
-### Changed
-for changes in existing functionality.
-### Deprecated
-for soon-to-be removed features.
-### Removed
-for now removed features.
-### Fixed
-for any bug fixes.
-### Security
-in case of vulnerabilities.
+### 追加
+新機能の追加
+### 変更
+既存の機能の変更
+### 廃止
+近日中に削除される予定の機能
+### 削除
+削除された機能
+### 修正
+意図しない動作の修正
+### セキュリティ
+脆弱性の修正
 -->
