@@ -30,7 +30,7 @@ open class YukkuriRenderer(val yukkuri: Yukkuri, val currentMapSize: SizeXZ) : R
     }
 
 
-    private val images = yukkuri.images
+    private val images = yukkuri.imageList
 
 
     /**

@@ -11,7 +11,7 @@ import java.nio.file.Paths
 /**
  * ゆっくりの画像を貯蔵するクラス.
  */
-abstract class YukkuriImage : Images() {
+abstract class YukkuriImage : ImageList() {
 
     /** 画像を貯蔵するゆっくりのディレクトリ上での名前. */
     abstract protected val name: String
