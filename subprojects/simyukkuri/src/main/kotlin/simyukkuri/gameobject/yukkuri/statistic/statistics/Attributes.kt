@@ -3,6 +3,8 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 import Root
 import messageutil.myYaml
 import java.io.InputStream
+import java.nio.file.Files
+import java.nio.file.Paths
 
 private class AttributeImpl(
     override val damageThreshold: Int,
@@ -35,7 +37,7 @@ private class AttributeImpl(
 fun productOf(vararg attribute: Attribute): Attribute = TODO("not implemented")
 
 /** 指定された名前の[Attribute]を表すYAMLファイルの[InputStream]を返す. */
-fun attributeInputStream(name: String): InputStream = Root::class.java.getResourceAsStream("attributes/$name.yml")
+fun attributeInputStream(name: String): InputStream = Files.newInputStream(Paths.get("attributes/$name.yml"))
 
 val defaultAttribute: Attribute by lazy { myYaml.load(attributeInputStream("default")) as Attribute }
 
