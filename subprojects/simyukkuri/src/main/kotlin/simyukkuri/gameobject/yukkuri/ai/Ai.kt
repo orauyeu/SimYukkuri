@@ -3,7 +3,7 @@ package simyukkuri.gameobject.yukkuri.ai
 import simyukkuri.GameScene
 import simyukkuri.gameobject.yukkuri.event.action.actions.*
 import simyukkuri.gameobject.yukkuri.event.individualevents.TakeCare
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
 /** ゆっくりの現在のtickでの行動を決定するクラス */
@@ -70,7 +70,7 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
      *
      * 対象が存在しない場合はnullを返す.
      */
-    fun findSukkiriTarget(): YukkuriStat? {
+    fun findSukkiriTarget(): YukkuriStats? {
         if (self.partner != null) {
             return self.partner
         } else {
@@ -87,7 +87,7 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
     }
 
     /** 対象を世話しようとするかを返す. */
-    fun willTakeCareOf(other: YukkuriStat): Boolean {
+    fun willTakeCareOf(other: YukkuriStats): Boolean {
         if (!other.isDirty)
             return false
         if (self.isParentOf(other)) {

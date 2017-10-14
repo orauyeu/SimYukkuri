@@ -2,7 +2,7 @@ package simyukkuri.gameobject.yukkuri
 
 // TODO: 外部ファイルに移す.
 abstract class StatisticsResource {
-    // tunable parameters for each YukkuriStat
+    // tunable parameters for each YukkuriStats
     private val HUNGRYLIMIT = intArrayOf(100 * 24, 100 * 24 * 2, 100 * 24 * 4)
     private val SHITLIMIT = intArrayOf(100 * 12, 100 * 24, 100 * 24)
     private val DAMAGELIMIT = intArrayOf(100 * 24, 100 * 24 * 3, 100 * 24 * 7)

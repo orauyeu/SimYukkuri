@@ -20,19 +20,19 @@ package simyukkuri.gameobject.yukkuri.ai
 import simyukkuri.GameScene
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.event.action.actions.*
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Damage
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 import simyukkuri.gameobject.yukkuri.statistic.statistics.MiscStat
 import simyukkuri.geometry.HasPosition3
 
 class RegacyAi(val gameScene: GameScene) {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
     lateinit var actionManager: ActionManager
 
     //TODO: y>0のときを考慮するのを忘れてるのでなんとかする.
 
-    protected fun willSukkiriWith(other: YukkuriStat): Boolean {
+    protected fun willSukkiriWith(other: YukkuriStats): Boolean {
         if (self.canSee(other)) return false
         if (self.isSuperRaper) return true
         if (self.isRaper) return !other.isDead
@@ -77,7 +77,7 @@ class RegacyAi(val gameScene: GameScene) {
         self.tryToAttack(target)
     }
 
-    protected fun willInitiatePhysicalContactWith(other: YukkuriStat): Boolean {
+    protected fun willInitiatePhysicalContactWith(other: YukkuriStats): Boolean {
         if (self.isPartnerOf(other))
             return true
 
@@ -124,7 +124,7 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
     // ゲスなら行わない, 賢いなら子供でも行うなど実装.
-    protected fun willTakeCareOf(other: YukkuriStat): Boolean {
+    protected fun willTakeCareOf(other: YukkuriStats): Boolean {
         if (self.isParentOf(other))
             if (self.isAdult && !other.isAdult)
                 if (other.isDirty)
@@ -239,7 +239,7 @@ class RegacyAi(val gameScene: GameScene) {
         }
     }
 
-    fun findSukkiriTarget(): YukkuriStat? {
+    fun findSukkiriTarget(): YukkuriStats? {
         if (self.partner != null) {
             return self.partner
         } else {
@@ -301,7 +301,7 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
 
-    private fun addBaby(x: Int, y: Int, z: Int, baby: YukkuriStat) {
+    private fun addBaby(x: Int, y: Int, z: Int, baby: YukkuriStats) {
         baby.x = x
         baby.y = y
         baby.z = z + 1
@@ -315,7 +315,7 @@ class RegacyAi(val gameScene: GameScene) {
         val i = bodyList.iterator()
         while (i.hasNext()) {
             val b = i.next()
-            b.putStress(bodyList.size) // YukkuriStat is getting stress according as number of bodies.
+            b.putStress(bodyList.size) // YukkuriStats is getting stress according as number of bodies.
             ret = b.clockTick()
             var willContinue = false
             when (ret) {

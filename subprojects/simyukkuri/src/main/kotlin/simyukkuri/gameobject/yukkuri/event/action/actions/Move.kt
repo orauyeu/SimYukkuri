@@ -5,12 +5,12 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.geometry.HasPosition3
 import simyukkuri.geometry.MutableVectorXZ
 
 /** 指定された位置ぴったりまで移動するアクション. */
-class Move(val self: YukkuriStat, val dst: HasPosition3) : SingleAction() {
+class Move(val self: YukkuriStats, val dst: HasPosition3) : SingleAction() {
     override fun execute() {
         val max_movement = self.speed * Time.UNIT
         if (self.distance2(dst) <= max_movement) {

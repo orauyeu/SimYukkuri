@@ -3,7 +3,7 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 import simyukkuri.GameScene
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.event.action.actions.Sleep
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.geometry.HasPosition3
 import simyukkuri.geometry.Position3
 
@@ -17,7 +17,7 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
         lateinit var gameScene: GameScene
     }
 
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var position: Position3
         get() = Position3(x, y, z)

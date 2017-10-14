@@ -1,6 +1,6 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * [Pregnancy]の標準的ゆっくりへの実装.
@@ -8,12 +8,12 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
  * @property gestationPeriod 出産までにかかる時間
  */
 class PregnancyImpl(private val gestationPeriod: Int) : Pregnancy {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override val isPregnant
         get() = babiesInWomb.size > 0
 
-    override val babiesInWomb = mutableSetOf<YukkuriStat>()
+    override val babiesInWomb = mutableSetOf<YukkuriStats>()
 
     /** 妊娠してから経過した時間 */
     var pregnancyTime = 0f

@@ -3,8 +3,8 @@ package simyukkuri.resource
 import Root
 import messageutil.*
 
-fun loadMessageData(name: String): MessageData = mutableMessageData().also {
-    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("msgList/$name.yml").use { myYaml.load(it) } as MessageData)
+fun loadMessageData(name: String): MessageCollection = mutableMessageCollection().also {
+    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("msgList/$name.yml").use { myYaml.load(it) } as MessageCollection)
     for ((key, condToMsgs) in rawMsgMap) {
         val tmpCondToMsgs = linkedMapOf<Condition, MutableList<String>>()
         it.put(key, tmpCondToMsgs)
@@ -18,4 +18,4 @@ fun loadMessageData(name: String): MessageData = mutableMessageData().also {
     }
 }
 
-val reimuMessageData: MessageData by lazy { loadMessageData("reimu") }
+val reimuMessageData: MessageCollection by lazy { loadMessageData("reimu") }

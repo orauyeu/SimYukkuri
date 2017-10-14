@@ -3,15 +3,15 @@ package messageutil
 import Root
 
 /** ゆっくり一匹分のメッセージデータ */
-typealias MessageData = Map<String, Map<Condition, List<String>>>
+typealias MessageCollection = Map<String, Map<Condition, List<String>>>
 
 /** ゆっくり一匹分のコメント付きのメッセージデータ */
-typealias CommentedMessageData = Map<String, Commented<Map<Condition, List<String>>>>
+typealias CommentedMessageCollection = Map<String, Commented<Map<Condition, List<String>>>>
 
-fun mutableMessageData() = linkedMapOf<String, LinkedHashMap<Condition, MutableList<String>>>()
+fun mutableMessageCollection() = linkedMapOf<String, LinkedHashMap<Condition, MutableList<String>>>()
 
 /** 空のミュータブルなコメント付きメッセージデータを返す. */
-fun mutableCommentedMessageData() = linkedMapOf<String, MutableCommented<LinkedHashMap<Condition, MutableList<String>>>>()
+fun mutableCommentedMessageCollection() = linkedMapOf<String, MutableCommented<LinkedHashMap<Condition, MutableList<String>>>>()
 
 // JARとして配布したくなったら外部ファイルとして取ってこれるようにする.
 /** セリフ名を変更前から変更後に移すマップ */
@@ -26,7 +26,7 @@ val renameMap: Map<String, String> by lazy {
 }
 
 /** セリフ名を変更する. */
-fun renameMessages(msgData: MessageData): MessageData =
+fun renameMessages(msgData: MessageCollection): MessageCollection =
     linkedMapOf<String, Map<Condition, List<String>>>().apply {
         msgData.forEach { name, value ->
             try {
@@ -38,7 +38,7 @@ fun renameMessages(msgData: MessageData): MessageData =
     }
 
 /** セリフ名を変更する. */
-fun renameCommentedMessages(msgData: CommentedMessageData): CommentedMessageData =
+fun renameCommentedMessages(msgData: CommentedMessageCollection): CommentedMessageCollection =
     linkedMapOf<String, Commented<Map<Condition, List<String>>>>().apply {
         msgData.forEach { name, value ->
             try {
@@ -50,7 +50,7 @@ fun renameCommentedMessages(msgData: CommentedMessageData): CommentedMessageData
     }
 
 /** コメント付きメッセージデータをyaml形式の文字列に変換する. */
-fun messageDataToString(msgData: CommentedMessageData): String {
+fun messageCollectionToYaml(msgData: CommentedMessageCollection): String {
     return buildString {
         var isFirst = true
         for ((key, commentedTypeToCommentedMessages) in msgData) {

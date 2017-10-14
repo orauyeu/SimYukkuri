@@ -4,10 +4,10 @@ import simyukkuri.gameobject.yukkuri.event.EventSequence
 import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.actions.Poop
 import simyukkuri.gameobject.yukkuri.event.action.actions.Say
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** うんうんイベント */
-class PooEvent(self: YukkuriStat) : EventSequence(arrayOf(
+class PooEvent(self: YukkuriStats) : EventSequence(arrayOf(
         Say(self, self.msgList.wantShit),
         // TODO: トイレに行く.
         Say(self, self.msgList.shitting),

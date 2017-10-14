@@ -1,10 +1,10 @@
 package simyukkuri.gameobject.yukkuri.ai
 
 import simyukkuri.gameobject.yukkuri.event.IndividualEvent
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** ゆっくりの個別イベントを受け取って実行するクラス */
-class EventManager(val self: YukkuriStat) {
+class EventManager(val self: YukkuriStats) {
     /** イベントを継続する. */
     fun proceed() {
         self.event.execute()

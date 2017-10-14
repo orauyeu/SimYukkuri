@@ -5,12 +5,12 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Action
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.geometry.HasPosition3
 import simyukkuri.geometry.MutableVectorXZ
 
 /** 近づくアクション */
-class Approach(val self: YukkuriStat, val dst: HasPosition3) : Action {
+class Approach(val self: YukkuriStats, val dst: HasPosition3) : Action {
     override var hasEnded: Boolean = false
 
     override val currentAction: Action = this

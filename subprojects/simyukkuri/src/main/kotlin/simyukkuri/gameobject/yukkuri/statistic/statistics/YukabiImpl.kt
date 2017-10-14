@@ -2,10 +2,10 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import org.apache.commons.lang3.RandomUtils
 import simyukkuri.Time
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 class YukabiImpl : Yukabi {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var isInfectedWithYukabi = false
 
@@ -29,7 +29,7 @@ class YukabiImpl : Yukabi {
             isInfectedWithYukabi = true
     }
 
-    override fun contact(other: YukkuriStat) {
+    override fun contact(other: YukkuriStats) {
         if (isInfectedWithYukabi && !other.isInfectedWithYukabi) {
             other.getInfectedWithYukabiInProbability()
         } else if (!isInfectedWithYukabi && other.isInfectedWithYukabi) {

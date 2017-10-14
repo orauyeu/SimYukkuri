@@ -1,6 +1,6 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * ゆかびのインターフェース.
@@ -26,7 +26,7 @@ interface Yukabi {
      *
      * 自分か相手のどちらかがゆかびに感染している場合一定の確率でもう一方に感染する.
      */
-    fun contact(other: YukkuriStat)
+    fun contact(other: YukkuriStats)
 
     fun update()
 }

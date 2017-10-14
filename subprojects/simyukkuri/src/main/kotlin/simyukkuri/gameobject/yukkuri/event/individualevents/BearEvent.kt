@@ -5,10 +5,10 @@ import simyukkuri.gameobject.yukkuri.event.EventSequence
 import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.actions.Bear
 import simyukkuri.gameobject.yukkuri.event.action.actions.Say
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** 出産イベント */
-class BearEvent(self: YukkuriStat, gameScene: GameScene) : EventSequence(arrayOf(
+class BearEvent(self: YukkuriStats, gameScene: GameScene) : EventSequence(arrayOf(
         Say(self, self.msgList.breeding),
         // TODO: ベッドへ行く.
         Say(self, self.msgList.breed),

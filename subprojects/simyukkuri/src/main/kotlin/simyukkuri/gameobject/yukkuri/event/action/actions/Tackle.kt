@@ -4,10 +4,10 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** 体当たりをするアクション */
-class Tackle(val self: YukkuriStat, val target: YukkuriStat) : SingleAction() {
+class Tackle(val self: YukkuriStats, val target: YukkuriStats) : SingleAction() {
     override fun execute() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

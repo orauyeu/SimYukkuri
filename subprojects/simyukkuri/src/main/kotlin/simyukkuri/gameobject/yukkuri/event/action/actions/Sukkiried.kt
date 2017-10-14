@@ -6,10 +6,10 @@ import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
 import simyukkuri.gameobject.yukkuri.factories.YukkuriFactory
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
-class Sukkiried(val self: YukkuriStat, val by: YukkuriStat) : SingleAction() {
+class Sukkiried(val self: YukkuriStats, val by: YukkuriStats) : SingleAction() {
     var period = Sukkiri.period
     override fun execute() {
         period -= Time.UNIT

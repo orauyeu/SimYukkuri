@@ -3,17 +3,17 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.event.action.Action
 import simyukkuri.gameobject.yukkuri.event.action.actions.NoAction
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** [MiscStat]の標準的ゆっくりへの実装 */
 class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var action: Action = NoAction
 
     override var isGrabbed: Boolean = false
 
-    override fun isNearTo(other: YukkuriStat): Boolean {
+    override fun isNearTo(other: YukkuriStats): Boolean {
         return self.distance(other) <= 100f
     }
 
@@ -36,7 +36,7 @@ class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
 
     protected val eyesight = 300.0
 
-    override fun canSee(other: YukkuriStat): Boolean {
+    override fun canSee(other: YukkuriStats): Boolean {
         return self.distance(other) <= eyesight
     }
 

@@ -6,11 +6,11 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 /** OSDN形式のゆっくりのデータをパラメータとセリフのペアに分割し, セリフデータを現行形式に変換する. */
-fun reformatOsdnMessage(path: Path): Pair<Map<String, Any>, MessageData> =
+fun reformatOsdnMessage(path: Path): Pair<Map<String, Any>, MessageCollection> =
     Files.newInputStream(path).use { reformatOsdnMessage(it) }
 
 /** OSDN形式のゆっくりのデータをパラメータとセリフのペアに分割し, セリフデータを現行形式に変換する. */
-fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageData> {
+fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageCollection> {
     val yukkuriData = @Suppress("UNCHECKED_CAST") (myYaml.load(input) as Map<String, Any>)
     val params: MutableMap<String, Any> = mutableMapOf()
     var keyToDamageToGrowthToMsgs: Map<String, List<List<String>>> = emptyMap()
@@ -21,7 +21,7 @@ fun reformatOsdnMessage(input: InputStream): Pair<Map<String, Any>, MessageData>
             params.put(key, value)
     }
 
-    val newMessageData = mutableMessageData()
+    val newMessageData = mutableMessageCollection()
     for ((rawMsgKey, damageToGrowthToMsgs) in keyToDamageToGrowthToMsgs) {
         val isImmoral: Boolean
         // RudeHogeという名前はHogeに置き換える

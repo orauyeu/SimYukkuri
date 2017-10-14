@@ -1,7 +1,7 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.Time
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * [Fullness]の標準的ゆっくりへの実装.
@@ -9,7 +9,7 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
  * @property self このパーツを所有するゆっくり
  */
 open class FullnessImpl : Fullness {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
     override var fullnessParam = 0f
         set(value) {
             field = value.limited(0f, 100f)

@@ -7,8 +7,8 @@ import java.nio.file.Path
 val messageClassName = "Messages"
 
 // TODO: ダメージを受けている版のメッセージがない場合, 通常版のメッセージで代用するなど欠けを補う.
-/** ゆっくりの発言パーツのメッセージデータのプロパティ部分を生成する. */
-fun messageDataToProperty(msgData: Map<String, Any?>): String = buildString {
+/** メッセージのプロパティ部分のソースを生成する. */
+fun messageCollectionToProperties(msgData: Map<String, Any?>): String = buildString {
     for ((messageName) in msgData)
         appendln("val $messageName: String? = messageData[\"$messageName\"]?.get(self.messageCondition)?.randomElement()")
 }
@@ -20,7 +20,7 @@ fun writeClassSource(writeDir: Path, vararg messagePaths: Path) {
             0 -> ""
             1 -> Files.newInputStream(messagePaths[0])
                 .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Condition, List<String>>>) }
-                .let { messageDataToProperty(it) }
+                .let { messageCollectionToProperties(it) }
             else -> run {
                 val messageData = Files.newInputStream(messagePaths[0])
                     .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as LinkedHashMap<String, Map<Condition, List<String>>>) }
@@ -29,7 +29,7 @@ fun writeClassSource(writeDir: Path, vararg messagePaths: Path) {
                         .use { @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, Map<Condition, List<String>>>) }
                         .let { messageData.putAll(it) }
                 }
-                messageDataToProperty(messageData)
+                messageCollectionToProperties(messageData)
             }
         }
     }

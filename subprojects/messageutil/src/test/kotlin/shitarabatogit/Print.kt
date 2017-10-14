@@ -1,6 +1,6 @@
 package shitarabatogit
 
-import messageutil.messageDataToString
+import messageutil.messageCollectionToYaml
 import messageutil.messageutilDir
 import messageutil.renameCommentedMessages
 import messageutil.zipBabyChild
@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
         }
             .let { zipBabyChild(it) }
             .let { renameCommentedMessages(it) }
-            .let { messageDataToString(it) }
+            .let { messageCollectionToYaml(it) }
         print(messageString)
         break
     }

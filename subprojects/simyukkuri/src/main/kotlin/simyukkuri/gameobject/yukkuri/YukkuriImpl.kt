@@ -1,7 +1,7 @@
 package simyukkuri.gameobject.yukkuri
 
 import simyukkuri.gameobject.yukkuri.ai.Ai
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.resource.ImageList
 
-class YukkuriImpl(stat: YukkuriStat, override val ai: Ai, val imageList: ImageList) : Yukkuri, YukkuriStat by stat
+class YukkuriImpl(stats: YukkuriStats, override val ai: Ai, override val imageList: ImageList) : Yukkuri, YukkuriStats by stats

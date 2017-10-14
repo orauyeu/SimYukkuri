@@ -2,11 +2,11 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.factories.YukkuriFactory
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** [Sukkiri]の標準的ゆっくりへの実装 */
 class SukkiriImpl : Sukkiri {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var isHorny = false
     override var isRaper = false
@@ -44,7 +44,7 @@ class SukkiriImpl : Sukkiri {
     override val fullnessConsumedByBeingSukkiried
         get() = fullnessConsumedBySukkiring * 2f
 
-    fun sukkiri(other: YukkuriStat) {
+    fun sukkiri(other: YukkuriStats) {
         self.says(self.msgList.sukkiri)
         isSukkiring = true
         isHorny = false

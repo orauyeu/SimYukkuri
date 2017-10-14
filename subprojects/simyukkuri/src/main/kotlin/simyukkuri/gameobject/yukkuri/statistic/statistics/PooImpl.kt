@@ -1,13 +1,13 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.Time
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * [Poo]の標準的ゆっくりへの実装
  */
 class PooImpl(override val unitPoo: Float) : Poo {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var pooParam = 0f
         set(value) {

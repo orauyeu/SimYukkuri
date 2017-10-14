@@ -5,16 +5,16 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Action
 import simyukkuri.gameobject.yukkuri.event.action.MultipleAction
 import simyukkuri.gameobject.yukkuri.event.action.Posture
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
 /** うんうんをするアクション. ゲスの場合うんうんをした後ふりふりする. */
-class Poop(self: YukkuriStat) : MultipleAction() {
+class Poop(self: YukkuriStats) : MultipleAction() {
     override var currentAction: Action = PoopImpl(self)
 }
 
 /** うんうんをするアクション. ゲスの場合うんうんをした後ふりふりする. */
-private class PoopImpl(val self: YukkuriStat) : Action {
+private class PoopImpl(val self: YukkuriStats) : Action {
     override var hasEnded: Boolean = false
 
     /** うんうん一回あたりにかかる時間 */

@@ -6,15 +6,15 @@ import simyukkuri.gameobject.yukkuri.event.action.Action
 import simyukkuri.gameobject.yukkuri.event.action.MultipleAction
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.randomStandingPosture
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** 眠るアクション */
-class Sleep(self: YukkuriStat) : MultipleAction() {
+class Sleep(self: YukkuriStats) : MultipleAction() {
     override var currentAction: Action = SleepImpl(self)
 }
 
 
-class SleepImpl(val self: YukkuriStat, override val posture: Posture = randomStandingPosture()) : Action {
+class SleepImpl(val self: YukkuriStats, override val posture: Posture = randomStandingPosture()) : Action {
     override var hasEnded: Boolean = false
 
     override var currentAction: Action = this

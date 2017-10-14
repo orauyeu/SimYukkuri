@@ -1,7 +1,7 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.Time
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * [Damage]の標準的ゆっくりへの実装.
@@ -9,7 +9,7 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
  * @property self このパーツを所有するゆっくり
  */
 class DamageImpl : Damage {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var damageParam = 0f
         set(value) {

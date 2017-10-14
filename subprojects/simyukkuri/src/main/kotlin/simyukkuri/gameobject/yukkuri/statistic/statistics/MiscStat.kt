@@ -1,7 +1,7 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.gameobject.yukkuri.event.action.Action
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** クラスを作るほどでもないステータスの集まり. */
 interface MiscStat {
@@ -32,9 +32,9 @@ interface MiscStat {
     /** ふりふりをする判定. */
     fun willFurifuri(): Boolean
 
-    fun canSee(other: YukkuriStat): Boolean
+    fun canSee(other: YukkuriStats): Boolean
 
-    fun isNearTo(other: YukkuriStat): Boolean
+    fun isNearTo(other: YukkuriStats): Boolean
 
     /**
      * ゆっくりがフィールドから除去されているか.

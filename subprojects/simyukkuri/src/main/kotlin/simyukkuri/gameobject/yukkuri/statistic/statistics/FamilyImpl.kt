@@ -1,15 +1,15 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** [Family]の実装 */
-class FamilyImpl(override val father: YukkuriStat?, override val mother: YukkuriStat?) : Family {
-    lateinit var self: YukkuriStat
+class FamilyImpl(override val father: YukkuriStats?, override val mother: YukkuriStats?) : Family {
+    lateinit var self: YukkuriStats
 
-    override val parents: Set<YukkuriStat>
+    override val parents: Set<YukkuriStats>
 
     init {
-        val parents = mutableSetOf<YukkuriStat>()
+        val parents = mutableSetOf<YukkuriStats>()
         if (father != null)
             parents.add(father)
         if (mother != null)
@@ -17,42 +17,42 @@ class FamilyImpl(override val father: YukkuriStat?, override val mother: Yukkuri
         this.parents = parents
     }
 
-    override val parent: YukkuriStat?
+    override val parent: YukkuriStats?
         get() = mother ?: father ?: null
 
-    override fun isChildOf(other: YukkuriStat): Boolean = other in parents
+    override fun isChildOf(other: YukkuriStats): Boolean = other in parents
 
-    override var partner: YukkuriStat? = null
+    override var partner: YukkuriStats? = null
 
-    override fun isPartnerOf(other: YukkuriStat): Boolean = partner == other
+    override fun isPartnerOf(other: YukkuriStats): Boolean = partner == other
 
-    override val elderSisters: MutableCollection<YukkuriStat> = mutableSetOf()
+    override val elderSisters: MutableCollection<YukkuriStats> = mutableSetOf()
 
-    override val youngerSisters: MutableCollection<YukkuriStat> = mutableSetOf()
+    override val youngerSisters: MutableCollection<YukkuriStats> = mutableSetOf()
 
-    override val sisters: Collection<YukkuriStat>
-        get() = HashSet<YukkuriStat>(elderSisters.size + youngerSisters.size).apply {
+    override val sisters: Collection<YukkuriStats>
+        get() = HashSet<YukkuriStats>(elderSisters.size + youngerSisters.size).apply {
             addAll(elderSisters)
             addAll(youngerSisters)
         }
 
-    override fun isElderSisterOf(other: YukkuriStat): Boolean = other in elderSisters
+    override fun isElderSisterOf(other: YukkuriStats): Boolean = other in elderSisters
 
-    override fun isYoungerSisterOf(other: YukkuriStat): Boolean = other in youngerSisters
+    override fun isYoungerSisterOf(other: YukkuriStats): Boolean = other in youngerSisters
 
-    override fun isSisterOf(other: YukkuriStat): Boolean = isElderSisterOf(other) || isYoungerSisterOf(other)
+    override fun isSisterOf(other: YukkuriStats): Boolean = isElderSisterOf(other) || isYoungerSisterOf(other)
 
-    override val children: MutableCollection<YukkuriStat> = mutableSetOf()
+    override val children: MutableCollection<YukkuriStats> = mutableSetOf()
 
-    override fun isMotherOf(other: YukkuriStat): Boolean = self == other.mother
+    override fun isMotherOf(other: YukkuriStats): Boolean = self == other.mother
 
-    override fun isFatherOf(other: YukkuriStat): Boolean = self == other.father
+    override fun isFatherOf(other: YukkuriStats): Boolean = self == other.father
 
-    override fun isParentOf(other: YukkuriStat): Boolean = other in children
+    override fun isParentOf(other: YukkuriStats): Boolean = other in children
 
-    override fun isRelatedToByBlood(other: YukkuriStat): Boolean {
+    override fun isRelatedToByBlood(other: YukkuriStats): Boolean {
         return isChildOf(other) || isParentOf(other) || isSisterOf(other)
     }
 
-    override fun areFamily(other: YukkuriStat): Boolean = isRelatedToByBlood(other) || isPartnerOf(other)
+    override fun areFamily(other: YukkuriStats): Boolean = isRelatedToByBlood(other) || isPartnerOf(other)
 }

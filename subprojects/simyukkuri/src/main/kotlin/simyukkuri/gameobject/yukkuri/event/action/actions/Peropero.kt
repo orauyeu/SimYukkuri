@@ -5,14 +5,14 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /**
  * ぺーろぺーろするアクション.
  *
  * ぺーろぺーろされたゆっくりは清潔になる.
  */
-class Peropero(val self: YukkuriStat, val target: YukkuriStat) : SingleAction() {
+class Peropero(val self: YukkuriStats, val target: YukkuriStats) : SingleAction() {
     var period = 2f
     override fun execute() {
         period -= Time.UNIT
