@@ -1,9 +1,10 @@
 package simyukkuri.resource
 
 import Root
+import messageutil.*
 
-fun loadMessageData(name: String): MessageData = mutableMessageData().apply {
-    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("messages/$name.yml").use { myYaml.load(it) } as MessageData)
+fun loadMessageData(name: String): MessageData = mutableMessageData().also {
+    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("msgList/$name.yml").use { myYaml.load(it) } as MessageData)
     for ((key, condToMsgs) in rawMsgMap) {
         val tmpCondToMsgs = linkedMapOf<Condition, MutableList<String>>()
         it.put(key, tmpCondToMsgs)

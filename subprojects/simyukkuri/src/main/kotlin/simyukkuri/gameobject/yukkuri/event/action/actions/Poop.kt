@@ -25,7 +25,7 @@ private class PoopImpl(val self: YukkuriStat) : Action {
         private set
 
     override fun execute() {
-        self.says(self.messages.shitting, Time.UNIT)
+        self.says(self.msgList.shitting, Time.UNIT)
         elapsedPoopTime += Time.UNIT
         if (elapsedPoopTime < unitPoopTime)
             return

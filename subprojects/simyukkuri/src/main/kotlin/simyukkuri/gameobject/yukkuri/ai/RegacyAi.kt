@@ -60,7 +60,7 @@ class RegacyAi(val gameScene: GameScene) {
         val raper = gameScene.yukkuriNearestTo(self) {
             it.isRaper && self.canSee(it)
         } ?: return
-        self.says(self.messages.scareRapist)
+        self.says(self.msgList.scareRapist)
     }
 
     protected fun attack() {
@@ -69,11 +69,11 @@ class RegacyAi(val gameScene: GameScene) {
         val target = gameScene.yukkuriNearestTo(self) {
             if (!self.isNearTo(it)) return@yukkuriNearestTo false
             if (!it.hasOkazari && self.hasOkazari)
-                if (self.isRude || !self.areFamily(it))
+                if (self.isImmoral || !self.areFamily(it))
                     return@yukkuriNearestTo true
             return@yukkuriNearestTo false
         } ?: return
-        self.says(self.messages.hateYukkuri)
+        self.says(self.msgList.hateYukkuri)
         self.tryToAttack(target)
     }
 
@@ -120,7 +120,7 @@ class RegacyAi(val gameScene: GameScene) {
 
     protected fun getScaredOfDead() {
         val dead = gameScene.yukkuriNearestTo(self) { it.isDead } ?: return
-        self.says(self.messages.scare)
+        self.says(self.msgList.scare)
     }
 
     // ゲスなら行わない, 賢いなら子供でも行うなど実装.

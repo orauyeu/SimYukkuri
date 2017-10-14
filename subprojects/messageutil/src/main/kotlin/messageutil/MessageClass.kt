@@ -10,7 +10,7 @@ val messageClassName = "Messages"
 /** ゆっくりの発言パーツのメッセージデータのプロパティ部分を生成する. */
 fun messageDataToProperty(msgData: Map<String, Any?>): String = buildString {
     for ((messageName) in msgData)
-        appendln("val $messageName: String = messageData[\"$messageName\"]?.get(self.messageCondition)?.randomElement()")
+        appendln("val $messageName: String? = messageData[\"$messageName\"]?.get(self.messageCondition)?.randomElement()")
 }
 
 /** 指定されたセリフデータからMessagesクラスのソースファイルを作成し, [writeDir]に保存する. */

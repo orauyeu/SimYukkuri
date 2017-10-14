@@ -27,16 +27,16 @@ class SleepImpl(val self: YukkuriStat, override val posture: Posture = randomSta
         self.damageParam -= Time.UNIT
 
         if (self.message != null && Math.random() < 0.1 * Time.UNIT)
-            self.says(self.messages.sleep, 2f)
+            self.says(self.msgList.sleep, 2f)
 
         if (self.sleepiness <= 0) {
             hasEnded = true
-            currentAction = Say(self, self.messages.wakeUp)
+            currentAction = Say(self, self.msgList.wakeUp)
         }
     }
 
     override fun interrupt() {
-        self.says(self.messages.wakeUp, 2f)
+        self.says(self.msgList.wakeUp, 2f)
     }
 
     override fun isTheSameAs(other: IndividualEvent): Boolean = other is Sleep

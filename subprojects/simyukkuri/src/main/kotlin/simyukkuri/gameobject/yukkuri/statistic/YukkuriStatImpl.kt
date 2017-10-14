@@ -1,9 +1,10 @@
 package simyukkuri.gameobject.yukkuri.statistic
 
+import messageutil.Condition
+import messageutil.Love
 import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.actions.NoAction
 import simyukkuri.gameobject.yukkuri.statistic.statistics.*
-import simyukkuri.resource.Messages
 
 /** [YukkuriStat]の実装 */
 class YukkuriStatImpl(
@@ -20,7 +21,7 @@ class YukkuriStatImpl(
     sleep: Sleep,
     sukkiri: Sukkiri,
     yukabi: Yukabi,
-    override val messages: Messages) :
+    val msgList: MessagePicker) :
         YukkuriStat,
         Damage by damage,
         Emotion by emotion,
@@ -37,6 +38,24 @@ class YukkuriStatImpl(
         Yukabi by yukabi {
 
     override var event: IndividualEvent = NoAction
+
+    /** メッセージ用のゆっくりの状態 */
+    override val messageCondition: Condition
+        get() {
+            val growth = when (growthStage) {
+                Growth.GrowthStage.BABY -> messageutil.Growth.BABY
+                Growth.GrowthStage.CHILD -> messageutil.Growth.CHILD
+                Growth.GrowthStage.ADULT -> messageutil.Growth.ADULT
+            }
+            return Condition(
+                    growth = growth,
+                    isImmoral = isImmoral,
+                    isDamaged = damageGrade >= Damage.Grade.LARGE,
+                    isPooSlave = false,
+                    love = Love.ALL,
+                    hasWrapper = hasWrapper
+            )
+        }
 
     override fun update() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

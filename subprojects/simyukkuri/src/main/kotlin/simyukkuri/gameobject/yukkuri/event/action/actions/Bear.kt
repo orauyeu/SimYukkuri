@@ -36,7 +36,7 @@ private class BearImpl(val self: YukkuriStat, val gameScene: GameScene) : Action
 
         if (self.hasWrapper) {
             bearWithWrapper()
-            currentAction = Say(self, self.messages.abort)
+            currentAction = Say(self, self.msgList.abort)
             return
         } else {
             bearChild()

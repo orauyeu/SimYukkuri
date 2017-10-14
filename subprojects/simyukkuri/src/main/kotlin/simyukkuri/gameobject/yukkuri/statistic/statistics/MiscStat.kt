@@ -25,7 +25,7 @@ interface MiscStat {
 
     var hasOkazari: Boolean
 
-    val isRude: Boolean
+    val isImmoral: Boolean
 
     val isIdiot: Boolean
 

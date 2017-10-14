@@ -108,10 +108,10 @@ class EmotionImpl : Emotion {
                 isFurifuring = true
                 stay(30)
             } // ゲスのときは確実に, そうでないときは確率でリラックス時のメッセージ
-            else if (isRude || random.nextInt(messageDiscipline + 2) == 0) {
+            else if (isImmoral || random.nextInt(messageDiscipline + 2) == 0) {
                 setMessage(getMessage("Relax"), 30)
                 stay(30)
-            } else if (!isRude || !isAdult) {
+            } else if (!isImmoral || !isAdult) {
                 setMessage(getMessage("NobiNobi"), 36)
                 isDoingNobinobi = true
                 stay(45)

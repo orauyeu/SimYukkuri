@@ -25,10 +25,10 @@ class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
 
     override var dirtyTime = 0f
 
-    override val isRude = false
+    override val isImmoral = false
 
     override fun willFurifuri(): Boolean {
-        if (self.isRude)
+        if (self.isImmoral)
             if (Math.random() < 0.5)
                 return true
         return false

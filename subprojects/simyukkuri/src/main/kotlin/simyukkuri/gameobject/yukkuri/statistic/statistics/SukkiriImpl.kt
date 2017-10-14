@@ -45,7 +45,7 @@ class SukkiriImpl : Sukkiri {
         get() = fullnessConsumedBySukkiring * 2f
 
     fun sukkiri(other: YukkuriStat) {
-        self.says(self.messages.sukkiri)
+        self.says(self.msgList.sukkiri)
         isSukkiring = true
         isHorny = false
         self.feels(Emotion.Happiness.HAPPY)
@@ -80,7 +80,7 @@ class SukkiriImpl : Sukkiri {
             if (self.isAdult && !self.isPregnant || isRaper) {
                 isHorny = true
                 hornyTime = 0f
-                self.says(self.messages.excite)
+                self.says(self.msgList.excite)
             }
         }
     }
