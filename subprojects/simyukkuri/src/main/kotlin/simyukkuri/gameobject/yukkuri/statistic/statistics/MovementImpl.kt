@@ -106,14 +106,14 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
         // 1.5は適当
         if (collisionDamage >= jumpHeight * 1.5) {
             self.damageParam += (collisionDamage - jumpHeight * 1.5).toFloat()
-            self.says(self.msgList.scream)
+            self.says(self.msgList.screams)
             // プレイヤーしかこのタイプのダメージを与えられないことが前提
             self.getAngry()
             // TODO: 多分これではちゃんと動作していない.
             if (self.action == Sleep(self))
                 self.action.interrupt()
             if (self.isDead) {
-                self.says(self.msgList.dying)
+                self.says(self.msgList.killedInstantly)
                 self.isCrushed = true
             }
         }

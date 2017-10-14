@@ -14,8 +14,22 @@ fun mutableMessageCollection() = linkedMapOf<String, LinkedHashMap<Condition, Mu
 fun mutableCommentedMessageCollection() = linkedMapOf<String, MutableCommented<LinkedHashMap<Condition, MutableList<String>>>>()
 
 // JARとして配布したくなったら外部ファイルとして取ってこれるようにする.
-/** セリフ名を変更前から変更後に移すマップ */
-val renameMap: Map<String, String> by lazy {
+/** OSDN版のセリフ名を変更前から変更後に移すマップ */
+val osdnRenameMap: Map<String, String> by lazy {
+    val renameMap = Root::class.java.getResourceAsStream("rename.yml").use {
+        @Suppress("UNCHECKED_CAST") (myYaml.load(it) as MutableMap<String, String>)
+    }
+    renameMap.putAll(Root::class.java.getResourceAsStream("rename_event.yml").use {
+        @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, String>)
+    })
+    renameMap.putAll(Root::class.java.getResourceAsStream("rename_osdn.yml").use {
+        @Suppress("UNCHECKED_CAST") (myYaml.load(it) as Map<String, String>)
+    })
+    renameMap
+}
+
+/** したらば版のセリフ名を変更前から変更後に移すマップ */
+val shitarabaRenameMap: Map<String, String> by lazy {
     val renameMap = Root::class.java.getResourceAsStream("rename.yml").use {
         @Suppress("UNCHECKED_CAST") (myYaml.load(it) as MutableMap<String, String>)
     }
@@ -26,7 +40,7 @@ val renameMap: Map<String, String> by lazy {
 }
 
 /** セリフ名を変更する. */
-fun renameMessages(msgData: MessageCollection): MessageCollection =
+fun renameMessages(msgData: MessageCollection, renameMap: Map<String, String>): MessageCollection =
     linkedMapOf<String, Map<Condition, List<String>>>().apply {
         msgData.forEach { name, value ->
             try {
@@ -38,7 +52,7 @@ fun renameMessages(msgData: MessageCollection): MessageCollection =
     }
 
 /** セリフ名を変更する. */
-fun renameCommentedMessages(msgData: CommentedMessageCollection): CommentedMessageCollection =
+fun renameCommentedMessages(msgData: CommentedMessageCollection, renameMap: Map<String, String>): CommentedMessageCollection =
     linkedMapOf<String, Commented<Map<Condition, List<String>>>>().apply {
         msgData.forEach { name, value ->
             try {

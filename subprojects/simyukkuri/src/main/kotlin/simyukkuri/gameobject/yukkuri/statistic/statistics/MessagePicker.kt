@@ -60,6 +60,8 @@ class MessagePicker(val self: YukkuriStats, private val messageCollection: Messa
         get() = messageCollection["peropero"]?.get(self.messageCondition)?.randomElement()
     val bearing: String?
         get() = messageCollection["bearing"]?.get(self.messageCondition)?.randomElement()
+    val greetsBabyAfterBearing: String?
+        get() = messageCollection["greetsBabyAfterBearing"]?.get(self.messageCondition)?.randomElement()
     val lamentsForAbortingBaby: String?
         get() = messageCollection["lamentsForAbortingBaby"]?.get(self.messageCondition)?.randomElement()
     val complainsAboutPoo: String?
@@ -88,5 +90,4 @@ class MessagePicker(val self: YukkuriStats, private val messageCollection: Messa
         get() = messageCollection["treasureTaken"]?.get(self.messageCondition)?.randomElement()
     val nobinobi: String?
         get() = messageCollection["nobinobi"]?.get(self.messageCondition)?.randomElement()
-
 }

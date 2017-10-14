@@ -1,9 +1,6 @@
 package osdntogit
 
-import messageutil.messageutilDir
-import messageutil.myYaml
-import messageutil.renameMessages
-import messageutil.writeClassSource
+import messageutil.*
 import java.nio.file.Files
 import java.nio.file.Path
 
@@ -28,7 +25,7 @@ fun writeOsdnMessages(writeDir: Path, readDir: Path) {
         println(oldFilePath)
         val (paramData, rawMessageData) = reformatOsdnMessage(oldFilePath)
         val messageString = rawMessageData
-            .let { renameMessages(it) }
+            .let { renameMessages(it, osdnRenameMap) }
             .let { myYaml.dump(it) }
             .replace("\n", "\r\n")
 

@@ -19,7 +19,7 @@ class Sukkiri(val self: YukkuriStats, val target: YukkuriStats) : SingleAction()
 
     override fun execute() {
         period -= Time.UNIT
-        self.says(self.msgList.sukkiri)
+        self.says(self.msgList.hasSukkiried)
 
         if (period >= 0f) return
 
