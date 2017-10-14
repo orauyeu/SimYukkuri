@@ -9,9 +9,9 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** 出産イベント */
 class BearEvent(self: YukkuriStats, gameScene: GameScene) : EventSequence(arrayOf(
-        Say(self, self.messageCollection.breeding),
+        Say(self, self.msgList.bearing),
         // TODO: ベッドへ行く.
-        Say(self, self.messageCollection.breed),
+        Say(self, self.msgList.greetsBabyAfterBearing),
         Bear(self, gameScene)
 )) {
     override fun isTheSameAs(other: IndividualEvent): Boolean {

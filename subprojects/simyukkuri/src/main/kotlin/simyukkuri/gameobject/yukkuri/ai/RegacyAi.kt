@@ -25,7 +25,7 @@ import simyukkuri.gameobject.yukkuri.statistic.statistics.Damage
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 import simyukkuri.gameobject.yukkuri.statistic.statistics.MiscStat
 import simyukkuri.geometry.HasPosition3
-
+/*
 class RegacyAi(val gameScene: GameScene) {
     lateinit var self: YukkuriStats
     lateinit var actionManager: ActionManager
@@ -371,3 +371,4 @@ class RegacyAi(val gameScene: GameScene) {
         operationTime += TICK.toLong()
     }
 }
+*/

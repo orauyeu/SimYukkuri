@@ -14,13 +14,13 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
  *
  * @constructor セリフを指定された体勢で数秒表示するアクションを返す.
  */
-class Say(private val self: YukkuriStats, private val saying: String, private var period: Float = 2f, override val posture: Posture = Posture.FRONT) : SingleAction() {
+class Say(private val self: YukkuriStats, private val message: String?, private var period: Float = 2f, override val posture: Posture = Posture.FRONT) : SingleAction() {
     constructor(self: YukkuriStats, target: YukkuriStats, saying: String, period: Float) : this(self, saying, period, postureByPosition(self, target))
 
     private var initialized = false
 
     override fun execute() {
-        self.says(saying)
+        self.says(message)
         period -= Time.UNIT
         if (period < 0f)
             hasEnded = true
@@ -30,6 +30,6 @@ class Say(private val self: YukkuriStats, private val saying: String, private va
 
     override fun isTheSameAs(other: IndividualEvent): Boolean {
         if (other !is Say) return false
-        return saying == other.saying && posture == other.posture
+        return message == other.message && posture == other.posture
     }
 }

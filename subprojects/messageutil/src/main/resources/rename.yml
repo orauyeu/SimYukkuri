@@ -1,4 +1,3 @@
-default: default
 WantFood: findsFood
 NoFood: wantsFood
 Excite: sexuallyExcited

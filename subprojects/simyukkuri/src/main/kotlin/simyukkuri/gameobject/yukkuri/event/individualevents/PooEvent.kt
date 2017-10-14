@@ -8,9 +8,9 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** うんうんイベント */
 class PooEvent(self: YukkuriStats) : EventSequence(arrayOf(
-        Say(self, self.messageCollection.wantShit),
+        Say(self, self.msgList.startsToPoop),
         // TODO: トイレに行く.
-        Say(self, self.messageCollection.shitting),
+        Say(self, self.msgList.hasPooped),
         Poop(self)
 )) {
     override fun isTheSameAs(other: IndividualEvent): Boolean = other is PooEvent
