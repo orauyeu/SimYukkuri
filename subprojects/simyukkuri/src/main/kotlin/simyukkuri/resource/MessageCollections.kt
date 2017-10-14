@@ -3,8 +3,10 @@ package simyukkuri.resource
 import Root
 import messageutil.*
 
+// TODO: ダメージ有りのメッセージが欠けているときはダメージなしで代用するなどの処理を行う.
+/** 指定された名前のゆっくりのメッセージを外部ファイルから読み込み, 返す. */
 fun loadMessageData(name: String): MessageCollection = mutableMessageCollection().also {
-    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("msgList/$name.yml").use { myYaml.load(it) } as MessageCollection)
+    val rawMsgMap = @Suppress("UNCHECKED_CAST") (Root::class.java.getResourceAsStream("messages/$name.yml").use { myYaml.load(it) } as MessageCollection)
     for ((key, condToMsgs) in rawMsgMap) {
         val tmpCondToMsgs = linkedMapOf<Condition, MutableList<String>>()
         it.put(key, tmpCondToMsgs)
@@ -18,4 +20,5 @@ fun loadMessageData(name: String): MessageCollection = mutableMessageCollection(
     }
 }
 
-val reimuMessageData: MessageCollection by lazy { loadMessageData("reimu") }
+/** れいむのメッセージコレクション */
+val reimuMessageCollection: MessageCollection by lazy { loadMessageData("reimu") }

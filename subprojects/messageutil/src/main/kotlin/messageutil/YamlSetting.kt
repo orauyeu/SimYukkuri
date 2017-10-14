@@ -11,7 +11,7 @@ import org.yaml.snakeyaml.representer.Represent
 import org.yaml.snakeyaml.representer.Representer
 
 /** [Condition]のyaml上のタグ. */
-val condTag = "!cond"
+val condTag = "!condition"
 
 private class TypeConstructor : Constructor() {
     init {

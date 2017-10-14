@@ -3,14 +3,16 @@ package messageutil
 import java.nio.file.Files
 import java.nio.file.Path
 
-/** メッセージを保管するクラスの名前 */
-val messageClassName = "Messages"
+/** メッセージを取り出すクラスの名前 */
+val messageClassName = "MessagePicker"
 
 // TODO: ダメージを受けている版のメッセージがない場合, 通常版のメッセージで代用するなど欠けを補う.
 /** メッセージのプロパティ部分のソースを生成する. */
 fun messageCollectionToProperties(msgData: Map<String, Any?>): String = buildString {
-    for ((messageName) in msgData)
-        appendln("val $messageName: String? = messageData[\"$messageName\"]?.get(self.messageCondition)?.randomElement()")
+    for ((messageName) in msgData) {
+        appendln("val $messageName: String?")
+        appendln("    get() = messageCollection[\"$messageName\"]?.get(self.messageCondition)?.randomElement()")
+    }
 }
 
 /** 指定されたセリフデータからMessagesクラスのソースファイルを作成し, [writeDir]に保存する. */

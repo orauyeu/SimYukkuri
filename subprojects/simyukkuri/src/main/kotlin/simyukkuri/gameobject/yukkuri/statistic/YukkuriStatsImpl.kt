@@ -21,7 +21,7 @@ class YukkuriStatsImpl(
     sleep: Sleep,
     sukkiri: Sukkiri,
     yukabi: Yukabi,
-    val msgList: MessagePicker) :
+    override val msgList: MessagePicker) :
         YukkuriStats,
         Damage by damage,
         Emotion by emotion,
