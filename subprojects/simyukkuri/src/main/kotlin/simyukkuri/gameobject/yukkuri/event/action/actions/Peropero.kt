@@ -16,7 +16,7 @@ class Peropero(val self: YukkuriStats, val target: YukkuriStats) : SingleAction(
     var period = 2f
     override fun execute() {
         period -= Time.UNIT
-        target.damageParam -= 2f
+        target.damageParam -= 2f * Time.UNIT
 
         if (period < 0f) {
             target.isDirty = false

@@ -6,7 +6,7 @@ import simyukkuri.gameobject.yukkuri.statistic.statistics.*
 
 /** ゆっくりのステータスのインターフェース */
 interface YukkuriStats :
-        Damage, Emotion, Family, Fullness, Growth, Message, MiscStat, Movement, Poo, Pregnancy, Sleep, Sukkiri, Yukabi {
+        Attribute, Damage, Emotion, Family, Fullness, Growth, Message, MiscStat, Movement, Poo, Pregnancy, Sleep, Sukkiri, Yukabi {
     val msgList: MessagePicker
 
     val messageCondition: Condition

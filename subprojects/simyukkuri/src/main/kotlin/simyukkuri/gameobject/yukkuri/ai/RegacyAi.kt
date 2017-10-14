@@ -36,7 +36,7 @@ class RegacyAi(val gameScene: GameScene) {
         if (self.canSee(other)) return false
         if (self.isSuperRaper) return true
         if (self.isRaper) return !other.isDead
-        if (!self.isHorny) return false
+        if (!self.isSexuallyExcited) return false
         if (other.isDead || other.growthStage < MiscStat.GrowthStage.ADULT || other.isRelatedToByBlood(self))
             return false
         return true
@@ -46,7 +46,7 @@ class RegacyAi(val gameScene: GameScene) {
         if (self.action > ActionManager.Event.SUKKIRI) {
             return
         }
-        if (!self.isHorny) return
+        if (!self.isSexuallyExcited) return
         // レイパーの場合も生きているゆっくりを優先するようにするべき？
         // TODO: レイパーはレイパーを襲わないようにする
         val target = when {
@@ -220,13 +220,13 @@ class RegacyAi(val gameScene: GameScene) {
             actionManager.act(Bear(self, gameScene))
         } else if (self.wantToPoo) {
             actionManager.act(Poop(self))
-        } else if (self.isHorny) {
+        } else if (self.isSexuallyExcited) {
             val target = findSukkiriTarget()
             if (target == null)
                 actionManager.act(Search(self))
             else
                 actionManager.act(Sukkiri(self, target))
-        } else if (!self.isHorny && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
+        } else if (!self.isSexuallyExcited && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
             actionManager.act(Sleep(self))
         } else if (willMoveToBePeroperoed()) {
             actionManager.act(Move(self, self.parent!!))
@@ -275,10 +275,10 @@ class RegacyAi(val gameScene: GameScene) {
                 self.standByPoop()
             }
             self.action = ActionManager.Event.POOP
-        } else if (self.isHorny) {
+        } else if (self.isSexuallyExcited) {
             sukkiri()
             self.action = ActionManager.Event.SUKKIRI
-        } else if (!self.isHorny && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
+        } else if (!self.isSexuallyExcited && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
             sleep()
         } else if (willMoveToBePeroperoed()) {
             moveToBePeroperoed()

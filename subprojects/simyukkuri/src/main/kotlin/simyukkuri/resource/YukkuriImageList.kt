@@ -9,7 +9,7 @@ import java.nio.file.Paths
 // 画像を反転させずとも, 画像と反転しているかの情報を持ったクラスを作って,
 // MyGraphicContextがそのクラスをいい感じに描画できるようにすれば問題ない.
 /**
- * ゆっくりの画像を貯蔵するクラス.
+ * ゆっくりの画像を保持するクラス.
  */
 abstract class YukkuriImageList : ImageList() {
 

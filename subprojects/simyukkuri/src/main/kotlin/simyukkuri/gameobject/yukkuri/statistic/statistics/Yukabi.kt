@@ -19,7 +19,7 @@ interface Yukabi {
     val hasDevelopedYukabi: Boolean
 
     /** ある確率でゆかびに感染する. */
-    fun getInfectedWithYukabiInProbability()
+    fun getInfectedWithYukabiRandomly()
 
     /**
      * 接触によるゆかびの感染を判定する.

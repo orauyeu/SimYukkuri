@@ -26,7 +26,7 @@ class Sukkiri(val self: YukkuriStats, val target: YukkuriStats) : SingleAction()
         hasEnded = true
         self.feels(Emotion.Happiness.HAPPY)
         self.fullnessParam -= self.fullnessConsumedBySukkiring
-        self.isHorny = false
+        self.isSexuallyExcited = false
 
         if (self.hasWrapper) {
             self.isDirty = true

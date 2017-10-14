@@ -1,29 +1,29 @@
 package simyukkuri.resource
 
-object AliceImageListList : YukkuriImageList() {
+object AliceImageList : YukkuriImageList() {
     override val name = "alice"
 }
 
-object MarisaImageListList : YukkuriImageList() {
+object MarisaImageList : YukkuriImageList() {
     override val name = "marisa"
 }
 
-object MarisaReimuImageListList : YukkuriImageList() {
+object MarisaReimuImageList : YukkuriImageList() {
     override val name = "marisa-reimu"
 }
 
-object ReimuMarisaImageListList : YukkuriImageList() {
+object ReimuMarisaImageList : YukkuriImageList() {
     override val name = "reimu-marisa"
 }
 
-object TarinaiImageListList : YukkuriImageList() {
+object TarinaiImageList : YukkuriImageList() {
     override val name = "tarinai"
 }
 
-object WasaReimuImageListList : YukkuriImageList() {
+object WasaReimuImageList : YukkuriImageList() {
     override val name = "wasa"
 }
 
-object ReimuImageListList : YukkuriImageList() {
+object ReimuImageList : YukkuriImageList() {
     override val name = "reimu"
 }

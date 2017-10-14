@@ -45,12 +45,6 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
     var vz = 0.0
     // TODO: ベルトコンベアに対応して床の速度を表す変数を作る
 
-    /** ジャンプの高さ */
-    protected val jumpHeight = 50.0
-
-    /** 1秒あたりに進むことのできる距離 */
-    override val speed = 10.0
-
     /** 掴まれているか */
     var isGrabbed = false
 
@@ -104,8 +98,8 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
         }
 
         // 1.5は適当
-        if (collisionDamage >= jumpHeight * 1.5) {
-            self.damageParam += (collisionDamage - jumpHeight * 1.5).toFloat()
+        if (collisionDamage >= self.jumpHeight * 1.5) {
+            self.damageParam += (collisionDamage - self.jumpHeight * 1.5).toFloat()
             self.says(self.msgList.screams)
             // プレイヤーしかこのタイプのダメージを与えられないことが前提
             self.getAngry()

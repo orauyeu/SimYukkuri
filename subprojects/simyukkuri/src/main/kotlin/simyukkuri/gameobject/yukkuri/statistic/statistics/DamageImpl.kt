@@ -8,7 +8,7 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
  *
  * @property self このパーツを所有するゆっくり
  */
-class DamageImpl : Damage {
+class DamageImpl() : Damage {
     lateinit var self: YukkuriStats
 
     override var damageParam = 0f
@@ -21,7 +21,7 @@ class DamageImpl : Damage {
 
     override val damageGrade
         get() = when {
-            damageParam >= 50f -> Damage.Grade.LARGE
+            damageParam >= self.damageThreshold -> Damage.Grade.LARGE
             else -> Damage.Grade.NONE
         }
 

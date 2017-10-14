@@ -19,8 +19,8 @@ class Sukkiried(val self: YukkuriStats, val by: YukkuriStats) : SingleAction() {
 
         hasEnded = true
         self.feels(Emotion.Happiness.HAPPY)
-        self.isHorny = false
-        self.fullnessParam -= self.fullnessConsumedByBeingSukkiried
+        self.isSexuallyExcited = false
+        self.fullnessParam -= self.fullnessConsumedByGettingSukkiried
 
         // TODO: レイパーの場合や既に番がいる場合などを考慮する.
         self.partner = by

@@ -14,7 +14,7 @@ class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
     override var isGrabbed: Boolean = false
 
     override fun isNearTo(other: YukkuriStats): Boolean {
-        return self.distance(other) <= 100f
+        return self.distance(other) <= self.nearThreshold
     }
 
     override var hasWrapper = false
@@ -34,10 +34,8 @@ class MiscStatImpl(override val isIdiot: Boolean) : MiscStat {
         return false
     }
 
-    protected val eyesight = 300.0
-
     override fun canSee(other: YukkuriStats): Boolean {
-        return self.distance(other) <= eyesight
+        return self.distance(other) <= self.eyesight
     }
 
     override var isDead = false

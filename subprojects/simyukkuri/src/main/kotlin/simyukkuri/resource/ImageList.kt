@@ -15,7 +15,7 @@ abstract class ImageList {
     /**
      * 画像を探すディレクトリのパス.
      *
-     * 例えばれいむの画像なら "imageList\yukkuri\reimu"
+     * 例えばれいむの画像なら "images/yukkuri/reimu"
      */
     protected abstract val root: Path
 
