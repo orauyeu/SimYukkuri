@@ -44,43 +44,13 @@ class SukkiriImpl : Sukkiri {
     override val fullnessConsumedByBeingSukkiried
         get() = fullnessConsumedBySukkiring * 2f
 
-    fun sukkiri(other: YukkuriStats) {
-        self.says(self.msgList.sukkiri)
-        isSukkiring = true
-        isHorny = false
-        self.feels(Emotion.Happiness.HAPPY)
-        self.fullnessParam -= fullnessConsumedBySukkiring
-
-        // TODO: すっきりが成功しなかったことへの反応
-        if (self.hasWrapper) {
-            self.isDirty = true
-            return
-        }
-        if (other.hasWrapper) {
-            other.isDirty = true
-            return
-        }
-
-        // すっきりがきちんと行われた場合
-        self.contact(other)
-        other.isSukkiring = true
-        other.isHorny = false
-        other.feels(Emotion.Happiness.HAPPY)
-        other.fullnessParam -= fullnessConsumedByBeingSukkiried
-        // TODO: レイパーの場合や既に番がいる場合などを考慮する.
-        self.partner = other
-        other.partner = self
-        // TODO: 一度に複数の赤ゆを妊娠できるようにする.
-        other.babiesInWomb.add(YukkuriFactory.createYukkuriFromParents(self, other))
-    }
-
     /** 興奮状態になることができる場合確率で興奮状態になる. */
     fun getHornyRandomly() {
         if (Math.random() < probabilityOfGetHorny) {
             if (self.isAdult && !self.isPregnant || isRaper) {
                 isHorny = true
                 hornyTime = 0f
-                self.says(self.msgList.excite)
+                self.says(self.msgList.sexuallyExcited)
             }
         }
     }

@@ -14,8 +14,8 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
  *
  * @constructor セリフを指定された体勢で数秒表示するアクションを返す.
  */
-class Say(private val self: YukkuriStats, private val saying: String?, private var period: Float = 2f, override val posture: Posture = Posture.FRONT) : SingleAction() {
-    constructor(self: YukkuriStats, target: YukkuriStats, saying: String?, period: Float) : this(self, saying, period, postureByPosition(self, target))
+class Say(private val self: YukkuriStats, private val saying: String, private var period: Float = 2f, override val posture: Posture = Posture.FRONT) : SingleAction() {
+    constructor(self: YukkuriStats, target: YukkuriStats, saying: String, period: Float) : this(self, saying, period, postureByPosition(self, target))
 
     private var initialized = false
 

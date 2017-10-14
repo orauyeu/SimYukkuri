@@ -3,7 +3,7 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 import messageutil.MessageCollection
 import simyukkuri.Time
 
-class MessageImpl(private val messageData: MessageCollection) : Message {
+class MessageImpl : Message {
     override var message: String? = null
 
     /** メッセージ表示を終了するまでの残り時間 */

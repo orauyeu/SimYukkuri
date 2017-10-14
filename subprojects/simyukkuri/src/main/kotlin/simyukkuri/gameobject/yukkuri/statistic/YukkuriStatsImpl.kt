@@ -14,14 +14,15 @@ class YukkuriStatsImpl(
     fullness: Fullness,
     growth: Growth,
     message: Message,
+    override val msgList: MessagePicker,
     miscStat: MiscStat,
     movement: Movement,
     poo: Poo,
     pregnancy: Pregnancy,
     sleep: Sleep,
     sukkiri: Sukkiri,
-    yukabi: Yukabi,
-    override val msgList: MessagePicker) :
+    yukabi: Yukabi
+    ) :
         YukkuriStats,
         Damage by damage,
         Emotion by emotion,

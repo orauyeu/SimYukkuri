@@ -47,7 +47,6 @@ class EmotionImpl : Emotion {
         }
     }
 
-    // メモリ節約したい場合はcompanionの値をゲットするようにする
     /** 怒りが収まるのにかかる時間 */
     protected val angryPeriod = 60f
 
@@ -61,7 +60,7 @@ class EmotionImpl : Emotion {
         angryTime = 0f
     }
 
-    /** 怒りが収まるのにかかる時間 */
+    /** 恐怖が収まるのにかかる時間 */
     protected val scaredPeriod = 60f
 
     /** 怒ってから経過した時間 */

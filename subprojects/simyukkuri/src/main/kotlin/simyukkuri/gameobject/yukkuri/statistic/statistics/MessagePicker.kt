@@ -5,7 +5,8 @@ import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.randomElement
 
 /** メッセージを取り出すためのクラス. */
-class MessagePicker(val self: YukkuriStats, private val messageCollection: MessageCollection) {
+class MessagePicker(private val messageCollection: MessageCollection) {
+    lateinit var self: YukkuriStats
     val findsFood: String?
         get() = messageCollection["findsFood"]?.get(self.messageCondition)?.randomElement()
     val wantsFood: String?

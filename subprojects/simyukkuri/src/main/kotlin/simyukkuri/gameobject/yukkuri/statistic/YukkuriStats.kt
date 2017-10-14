@@ -7,12 +7,11 @@ import simyukkuri.gameobject.yukkuri.statistic.statistics.*
 /** ゆっくりのステータスのインターフェース */
 interface YukkuriStats :
         Damage, Emotion, Family, Fullness, Growth, Message, MiscStat, Movement, Poo, Pregnancy, Sleep, Sukkiri, Yukabi {
-    /** このゆっくりのメッセージのリスト */
     val msgList: MessagePicker
 
-    var event: IndividualEvent
-
     val messageCondition: Condition
+
+    var event: IndividualEvent
 
     override fun update()
 }

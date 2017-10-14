@@ -18,7 +18,7 @@ class FamilyImpl(override val father: YukkuriStats?, override val mother: Yukkur
     }
 
     override val parent: YukkuriStats?
-        get() = mother ?: father ?: null
+        get() = mother ?: father
 
     override fun isChildOf(other: YukkuriStats): Boolean = other in parents
 
