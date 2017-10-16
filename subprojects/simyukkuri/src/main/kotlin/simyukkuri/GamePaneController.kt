@@ -30,7 +30,7 @@ class GamePaneController {
     lateinit var testLabel: Label
 
     /** 背景画像 */
-    private val bgImage = Image(Files.newInputStream(Paths.get("images\\back.jpg")), 568.0, 432.0, true, true)
+    private val bgImage = Image(Files.newInputStream(Paths.get("imageList\\back.jpg")), 568.0, 432.0, true, true)
 
 
     /** プレイヤーの行動 */

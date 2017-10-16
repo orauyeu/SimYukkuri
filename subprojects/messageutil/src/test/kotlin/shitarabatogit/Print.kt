@@ -1,12 +1,9 @@
 package shitarabatogit
 
-import messageutil.messageDataToString
-import messageutil.messageutilDir
-import messageutil.renameCommentedMessages
-import messageutil.zipBabyChild
+import messageutil.*
 import java.nio.file.Files
 
-/** kakojo_oldディレクトリ内のセリフファイルを新しい形式に直してダンプしたものをプリントする. */
+/** OSDN形式のセリフファイルを現行形式に直したものをプリントする. */
 fun main(args: Array<String>) {
     for (oldFilePath in Files.list(messageutilDir.resolve("shitaraba/old"))) {
         println(oldFilePath)
@@ -16,8 +13,8 @@ fun main(args: Array<String>) {
             throw RuntimeException("次のファイルでエラーがありました: $oldFilePath", e)
         }
             .let { zipBabyChild(it) }
-            .let { renameCommentedMessages(it) }
-            .let { messageDataToString(it) }
+            .let { renameCommentedMessages(it, shitarabaRenameMap) }
+            .let { messageCollectionToYaml(it) }
         print(messageString)
         break
     }

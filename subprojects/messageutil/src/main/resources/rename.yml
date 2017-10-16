@@ -24,7 +24,7 @@ EatingShit: eatingPoo
 TransportFood: carriesFood
 TransportShit: putsPooAway
 # まりさのセリフを見た感じうんうんどれいはうんうんを運ぶことが前提になっている
-DropItem: puts
+DropItem: putsSomethingDown
 EatingBadtasting: eatingBadTasting
 EatingBitter: hasEatenBitter
 SpitFood: spitsFood
@@ -44,7 +44,7 @@ SuriSuri: surisuri
 PeroPero: peropero
 Breed: bearing
 # 別種の発言だからおくるみ装着時の発言は分ける
-Breed2: hasBorn
+Breed2: greetsBabyAfterBearing
 HateShit: complainsAboutPoo
 ShitIntimidation: pukusPoo
 Hungry: hungry
@@ -118,17 +118,3 @@ Moldy: moldy
 MoldySeriousry: sufferFromYukabi
 # めーりんのタイポ用
 MoldrySeriousry: sufferFromYukabi
-
-# OSDN用
-WantShit: startsToPoop
-Wetting: needsToPoop
-Shitting: hasPooped
-Wetted: leaksPoo
-Breeding: bearing
-Abort: lamentsForAbortingBaby
-Hangry: hungry
-LostAccessory: losesOkazari
-SadnessForElderSister: elderSisterDies
-SadnessForYungerSister: youngerSisterDies
-SadnessForYoungerSister: youngerSisterDies
-NobiNobi: nobinobi

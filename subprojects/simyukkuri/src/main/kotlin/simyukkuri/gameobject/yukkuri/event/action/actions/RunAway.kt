@@ -5,7 +5,7 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.geometry.MutableVectorXZ
 
 // TODO: 発言を引数にとり, それを言いながら逃げるようにする.
@@ -14,7 +14,7 @@ import simyukkuri.geometry.MutableVectorXZ
  *
  * @param from 逃げる相手
  */
-class RunAway(val self: YukkuriStat, private val from: YukkuriStat) : SingleAction() {
+class RunAway(val self: YukkuriStats, private val from: YukkuriStats) : SingleAction() {
     // TODO: 壁に引っかかったときの処理.
     override fun execute() {
         val maxMovement = self.speed * Time.UNIT

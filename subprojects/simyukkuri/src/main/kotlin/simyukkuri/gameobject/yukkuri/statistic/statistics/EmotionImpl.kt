@@ -1,19 +1,19 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
 import simyukkuri.Time
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 
 /**
  * [Emotion]の標準的ゆっくりへの実装.
  */
 class EmotionImpl : Emotion {
+    lateinit var self: YukkuriStats
+
     override var happiness = Emotion.Happiness.NORMAL
 
     /** 現在の幸福感情を持ってから経過した時間 */
-    var happinessTime = 0f
-
-    /** 幸福感情を維持する時間 */
-    val happinessPeriod = 60f
+    var elapsedHappySec = 0f
 
     /**
      * 幸福をセットする. 他の感情にも影響を与える.
@@ -22,7 +22,7 @@ class EmotionImpl : Emotion {
      * 悲しみ状態になったとき[isAngry]がfalseになる.
      */
     override fun feels(happiness: Emotion.Happiness) {
-        happinessTime = 0f
+        elapsedHappySec = 0f
         when (happiness) {
         // 弱い感情で強い感情をかき消さないようにする
             Emotion.Happiness.SAD -> {
@@ -47,31 +47,24 @@ class EmotionImpl : Emotion {
         }
     }
 
-    // メモリ節約したい場合はcompanionの値をゲットするようにする
-    /** 怒りが収まるのにかかる時間 */
-    protected val angryPeriod = 60f
-
     /** 怒ってから経過した時間 */
-    private var angryTime = 0f
+    private var elapsedAngrySec = 0f
 
     override var isAngry = false
 
     override fun getAngry() {
         isAngry = true
-        angryTime = 0f
+        elapsedAngrySec = 0f
     }
 
-    /** 怒りが収まるのにかかる時間 */
-    protected val scaredPeriod = 60f
-
     /** 怒ってから経過した時間 */
-    private var scaredTime = 0f
+    private var elapsedScaredSec = 0f
 
     override var isScared = false
 
     override fun getScared() {
         isScared = true
-        scaredTime = 0f
+        elapsedScaredSec = 0f
     }
 
     override fun resetEmotion() {
@@ -83,20 +76,20 @@ class EmotionImpl : Emotion {
     /** 感情の更新処理. */
     override fun update() {
         if (happiness != Emotion.Happiness.NORMAL) {
-            happinessTime -= Time.UNIT
-            if (happinessTime >= happinessPeriod) {
+            elapsedHappySec -= Time.UNIT
+            if (elapsedHappySec >= self.happySec) {
                 happiness = Emotion.Happiness.NORMAL
             }
         }
         if (isAngry) {
-            angryTime -= Time.UNIT
-            if (angryTime >= angryPeriod) {
+            elapsedAngrySec -= Time.UNIT
+            if (elapsedAngrySec >= self.angrySec) {
                 isAngry = false
             }
         }
         if (isScared) {
-            scaredTime -= Time.UNIT
-            if (scaredTime >= scaredPeriod) {
+            elapsedScaredSec -= Time.UNIT
+            if (elapsedScaredSec >= self.scaredSec) {
                 isScared = false
             }
         }
@@ -108,10 +101,10 @@ class EmotionImpl : Emotion {
                 isFurifuring = true
                 stay(30)
             } // ゲスのときは確実に, そうでないときは確率でリラックス時のメッセージ
-            else if (isRude || random.nextInt(messageDiscipline + 2) == 0) {
+            else if (isImmoral || random.nextInt(messageDiscipline + 2) == 0) {
                 setMessage(getMessage("Relax"), 30)
                 stay(30)
-            } else if (!isRude || !isAdult) {
+            } else if (!isImmoral || !isAdult) {
                 setMessage(getMessage("NobiNobi"), 36)
                 isDoingNobinobi = true
                 stay(45)

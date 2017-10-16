@@ -7,16 +7,16 @@ import simyukkuri.gameobject.yukkuri.event.action.actions.Approach
 import simyukkuri.gameobject.yukkuri.event.action.actions.Search
 import simyukkuri.gameobject.yukkuri.event.action.actions.Sukkiri
 import simyukkuri.gameobject.yukkuri.event.eventSequenceOf
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 // TODO: 対象のゆっくりが視界から消えたときイベントを中止する.
 /** すっきりイベント */
-class SukkiriEvent(self: YukkuriStat, gameScene: GameScene) : IndividualEvent {
+class SukkiriEvent(self: YukkuriStats, gameScene: GameScene) : IndividualEvent {
     override var hasEnded: Boolean = false
     override val currentAction: Action
         get() = currentEvent.currentAction
 
-    var target: YukkuriStat?
+    var target: YukkuriStats?
     var currentEvent: IndividualEvent
 
     init {

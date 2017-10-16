@@ -119,7 +119,7 @@ panel:
         - Foundage
         - "Income($/min.)"
 initpath: "inits/"
-imagepath: "images/"
+imagepath: "imageList/"
 yukkuri: 
   - name: Marisa
     init: "Marisa.yml"

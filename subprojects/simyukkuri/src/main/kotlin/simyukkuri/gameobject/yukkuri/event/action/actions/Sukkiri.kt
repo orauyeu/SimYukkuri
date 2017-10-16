@@ -5,11 +5,11 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Posture
 import simyukkuri.gameobject.yukkuri.event.action.SingleAction
 import simyukkuri.gameobject.yukkuri.event.action.postureByPosition
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
 /** すっきりをするアクション */
-class Sukkiri(val self: YukkuriStat, val target: YukkuriStat) : SingleAction() {
+class Sukkiri(val self: YukkuriStats, val target: YukkuriStats) : SingleAction() {
     companion object {
         // Sukkiriedと長さを合わせるため
         val period = 3f
@@ -19,14 +19,14 @@ class Sukkiri(val self: YukkuriStat, val target: YukkuriStat) : SingleAction() {
 
     override fun execute() {
         period -= Time.UNIT
-        self.says(self.messages.sukkiri)
+        self.says(self.msgList.hasSukkiried)
 
         if (period >= 0f) return
 
         hasEnded = true
         self.feels(Emotion.Happiness.HAPPY)
         self.fullnessParam -= self.fullnessConsumedBySukkiring
-        self.isHorny = false
+        self.isSexuallyExcited = false
 
         if (self.hasWrapper) {
             self.isDirty = true

@@ -7,9 +7,6 @@ interface Poo {
      */
     var pooParam: Float
 
-    /** 一回あたりのうんうん量. */
-    val unitPoo: Float
-
     /** うんうんをしたいか */
     val wantToPoo: Boolean
 

@@ -1,5 +1,6 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
+import messageutil.MessageCollection
 import simyukkuri.Time
 
 class MessageImpl : Message {
@@ -8,12 +9,16 @@ class MessageImpl : Message {
     /** メッセージ表示を終了するまでの残り時間 */
     private var messagePeriod: Float = 0f
 
-    override fun says(message: String) {
+    override fun says(message: String?) {
         says(message, Time.UNIT)
     }
 
-    override fun says(message: String, period: Float) {
-        this.message = message
+    // TODO: デフォルトメッセージも外部ファイルに移す.
+    override fun says(message: String?, period: Float) {
+        if (message == null)
+            this.message = "ゆ"
+        else
+            this.message = message
         messagePeriod = period
     }
 

@@ -1,0 +1,27 @@
+# ゆっくりのデフォルトのパラメータ
+!!Attribute
+damageThreshold: 50
+happySec: 60
+angrySec: 60
+scaredSec: 60
+fullnessThresholds: [20, 80]
+maxFullness: 100
+damagePerHunger: 1
+nearThreshold: 100
+eyesight: 300
+speed: 10
+jumpHeight: 10
+unitPoo: 50
+gestationSec: 120
+bearingSec: 5
+sleepyThreshold: 360
+sexuallyExcitedSec: 60
+fullnessConsumedBySukkiring: 10
+fullnessConsumedByGettingSukkiried: 20
+probabilityOfGettingSexuallyExcited: 0.1
+probabilityOfGettingSexuallyExcitedOfRaper: 0.5
+incubationSec: 180
+# 1/180
+probabilityOfInfectionByInsanitationPerSec: 0.006
+probabilityOfInfectionByContact: 0.3
+decreasingDamageByPeroperoedPerSec: 1

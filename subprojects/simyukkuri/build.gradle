@@ -18,4 +18,5 @@ dependencies {
 	compile group: 'org.jetbrains.kotlin', name: 'kotlin-stdlib-jre8', version: kotlin_version
 	compile group: 'org.yaml', name: 'snakeyaml', version: '1.8'
 	compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+	compile project(':messageutil')
 }

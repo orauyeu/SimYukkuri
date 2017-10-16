@@ -3,7 +3,7 @@ package simyukkuri.gameobject.yukkuri.statistic.statistics
 import simyukkuri.GameScene
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.event.action.actions.Sleep
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.geometry.HasPosition3
 import simyukkuri.geometry.Position3
 
@@ -17,7 +17,7 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
         lateinit var gameScene: GameScene
     }
 
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
 
     override var position: Position3
         get() = Position3(x, y, z)
@@ -44,12 +44,6 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
     /** z方向の速さ */
     var vz = 0.0
     // TODO: ベルトコンベアに対応して床の速度を表す変数を作る
-
-    /** ジャンプの高さ */
-    protected val jumpHeight = 50.0
-
-    /** 1秒あたりに進むことのできる距離 */
-    override val speed = 10.0
 
     /** 掴まれているか */
     var isGrabbed = false
@@ -104,16 +98,16 @@ class MovementImpl(x: Double, y: Double, z: Double) : Movement {
         }
 
         // 1.5は適当
-        if (collisionDamage >= jumpHeight * 1.5) {
-            self.damageParam += (collisionDamage - jumpHeight * 1.5).toFloat()
-            self.says(self.messages.scream)
+        if (collisionDamage >= self.jumpHeight * 1.5) {
+            self.damageParam += (collisionDamage - self.jumpHeight * 1.5).toFloat()
+            self.says(self.msgList.screams)
             // プレイヤーしかこのタイプのダメージを与えられないことが前提
             self.getAngry()
             // TODO: 多分これではちゃんと動作していない.
             if (self.action == Sleep(self))
                 self.action.interrupt()
             if (self.isDead) {
-                self.says(self.messages.dying)
+                self.says(self.msgList.killedInstantly)
                 self.isCrushed = true
             }
         }

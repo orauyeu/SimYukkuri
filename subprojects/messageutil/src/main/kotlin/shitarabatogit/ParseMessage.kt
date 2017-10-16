@@ -12,7 +12,7 @@ import java.nio.file.Path
  *
  * @param strict falseのときタグの閉じ忘れや閉じすぎを無視する.
  */
-fun parseShitarabaMessage(path: Path, strict: Boolean = true): CommentedMessageData =
+fun parseShitarabaMessage(path: Path, strict: Boolean = true): CommentedMessageCollection =
     Files.newInputStream(path).use { parseShitarabaMessage(it, strict) }
 
 /**
@@ -20,8 +20,8 @@ fun parseShitarabaMessage(path: Path, strict: Boolean = true): CommentedMessageD
  *
  * @param strict falseのときタグの閉じ忘れや閉じすぎを無視する.
  */
-fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): CommentedMessageData {
-    val msgData = mutableCommentedMessageData()
+fun parseShitarabaMessage(input: InputStream, strict: Boolean = true): CommentedMessageCollection {
+    val msgData = mutableCommentedMessageCollection()
     // 現在の行における状態
     var lineNumber = 0
     var actionName = ""

@@ -20,23 +20,23 @@ package simyukkuri.gameobject.yukkuri.ai
 import simyukkuri.GameScene
 import simyukkuri.Time
 import simyukkuri.gameobject.yukkuri.event.action.actions.*
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Damage
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 import simyukkuri.gameobject.yukkuri.statistic.statistics.MiscStat
 import simyukkuri.geometry.HasPosition3
-
+/*
 class RegacyAi(val gameScene: GameScene) {
-    lateinit var self: YukkuriStat
+    lateinit var self: YukkuriStats
     lateinit var actionManager: ActionManager
 
     //TODO: y>0のときを考慮するのを忘れてるのでなんとかする.
 
-    protected fun willSukkiriWith(other: YukkuriStat): Boolean {
+    protected fun willSukkiriWith(other: YukkuriStats): Boolean {
         if (self.canSee(other)) return false
         if (self.isSuperRaper) return true
         if (self.isRaper) return !other.isDead
-        if (!self.isHorny) return false
+        if (!self.isSexuallyExcited) return false
         if (other.isDead || other.growthStage < MiscStat.GrowthStage.ADULT || other.isRelatedToByBlood(self))
             return false
         return true
@@ -46,7 +46,7 @@ class RegacyAi(val gameScene: GameScene) {
         if (self.action > ActionManager.Event.SUKKIRI) {
             return
         }
-        if (!self.isHorny) return
+        if (!self.isSexuallyExcited) return
         // レイパーの場合も生きているゆっくりを優先するようにするべき？
         // TODO: レイパーはレイパーを襲わないようにする
         val target = when {
@@ -60,7 +60,7 @@ class RegacyAi(val gameScene: GameScene) {
         val raper = gameScene.yukkuriNearestTo(self) {
             it.isRaper && self.canSee(it)
         } ?: return
-        self.says(self.messages.scareRapist)
+        self.says(self.msgList.scareRapist)
     }
 
     protected fun attack() {
@@ -69,15 +69,15 @@ class RegacyAi(val gameScene: GameScene) {
         val target = gameScene.yukkuriNearestTo(self) {
             if (!self.isNearTo(it)) return@yukkuriNearestTo false
             if (!it.hasOkazari && self.hasOkazari)
-                if (self.isRude || !self.areFamily(it))
+                if (self.isImmoral || !self.areFamily(it))
                     return@yukkuriNearestTo true
             return@yukkuriNearestTo false
         } ?: return
-        self.says(self.messages.hateYukkuri)
+        self.says(self.msgList.hateYukkuri)
         self.tryToAttack(target)
     }
 
-    protected fun willInitiatePhysicalContactWith(other: YukkuriStat): Boolean {
+    protected fun willInitiatePhysicalContactWith(other: YukkuriStats): Boolean {
         if (self.isPartnerOf(other))
             return true
 
@@ -120,11 +120,11 @@ class RegacyAi(val gameScene: GameScene) {
 
     protected fun getScaredOfDead() {
         val dead = gameScene.yukkuriNearestTo(self) { it.isDead } ?: return
-        self.says(self.messages.scare)
+        self.says(self.msgList.scare)
     }
 
     // ゲスなら行わない, 賢いなら子供でも行うなど実装.
-    protected fun willTakeCareOf(other: YukkuriStat): Boolean {
+    protected fun willTakeCareOf(other: YukkuriStats): Boolean {
         if (self.isParentOf(other))
             if (self.isAdult && !other.isAdult)
                 if (other.isDirty)
@@ -220,13 +220,13 @@ class RegacyAi(val gameScene: GameScene) {
             actionManager.act(Bear(self, gameScene))
         } else if (self.wantToPoo) {
             actionManager.act(Poop(self))
-        } else if (self.isHorny) {
+        } else if (self.isSexuallyExcited) {
             val target = findSukkiriTarget()
             if (target == null)
                 actionManager.act(Search(self))
             else
                 actionManager.act(Sukkiri(self, target))
-        } else if (!self.isHorny && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
+        } else if (!self.isSexuallyExcited && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
             actionManager.act(Sleep(self))
         } else if (willMoveToBePeroperoed()) {
             actionManager.act(Move(self, self.parent!!))
@@ -239,7 +239,7 @@ class RegacyAi(val gameScene: GameScene) {
         }
     }
 
-    fun findSukkiriTarget(): YukkuriStat? {
+    fun findSukkiriTarget(): YukkuriStats? {
         if (self.partner != null) {
             return self.partner
         } else {
@@ -275,10 +275,10 @@ class RegacyAi(val gameScene: GameScene) {
                 self.standByPoop()
             }
             self.action = ActionManager.Event.POOP
-        } else if (self.isHorny) {
+        } else if (self.isSexuallyExcited) {
             sukkiri()
             self.action = ActionManager.Event.SUKKIRI
-        } else if (!self.isHorny && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
+        } else if (!self.isSexuallyExcited && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD) {
             sleep()
         } else if (willMoveToBePeroperoed()) {
             moveToBePeroperoed()
@@ -301,7 +301,7 @@ class RegacyAi(val gameScene: GameScene) {
     }
 
 
-    private fun addBaby(x: Int, y: Int, z: Int, baby: YukkuriStat) {
+    private fun addBaby(x: Int, y: Int, z: Int, baby: YukkuriStats) {
         baby.x = x
         baby.y = y
         baby.z = z + 1
@@ -315,7 +315,7 @@ class RegacyAi(val gameScene: GameScene) {
         val i = bodyList.iterator()
         while (i.hasNext()) {
             val b = i.next()
-            b.putStress(bodyList.size) // YukkuriStat is getting stress according as number of bodies.
+            b.putStress(bodyList.size) // YukkuriStats is getting stress according as number of bodies.
             ret = b.clockTick()
             var willContinue = false
             when (ret) {
@@ -371,3 +371,4 @@ class RegacyAi(val gameScene: GameScene) {
         operationTime += TICK.toLong()
     }
 }
+*/

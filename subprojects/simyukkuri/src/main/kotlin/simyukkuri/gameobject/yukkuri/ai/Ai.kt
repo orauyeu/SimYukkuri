@@ -3,9 +3,10 @@ package simyukkuri.gameobject.yukkuri.ai
 import simyukkuri.GameScene
 import simyukkuri.gameobject.yukkuri.event.action.actions.*
 import simyukkuri.gameobject.yukkuri.event.individualevents.TakeCare
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
+// TODO: シーンはメソッドの引数として受け取るようにして所有しないようにする.
 /** ゆっくりの現在のtickでの行動を決定するクラス */
 class Ai(val eventManager: EventManager, val gameScene: GameScene) {
     val self = eventManager.self
@@ -41,14 +42,14 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
             self.wantToPoo ->
                 eventManager.execute(Poop(self))
 
-            self.isHorny -> {
+            self.isSexuallyExcited -> {
                 val target = findSukkiriTarget()
                 if (target == null)
                     eventManager.execute(Search(self))
                 else
                     eventManager.execute(Sukkiri(self, target))
             }
-            !self.isHorny && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD -> {
+            !self.isSexuallyExcited && !self.isScared && self.happiness != Emotion.Happiness.VERY_SAD -> {
                 eventManager.execute(Sleep(self))
             }
             willMoveToBePeroperoed() ->
@@ -70,7 +71,7 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
      *
      * 対象が存在しない場合はnullを返す.
      */
-    fun findSukkiriTarget(): YukkuriStat? {
+    fun findSukkiriTarget(): YukkuriStats? {
         if (self.partner != null) {
             return self.partner
         } else {
@@ -87,7 +88,7 @@ class Ai(val eventManager: EventManager, val gameScene: GameScene) {
     }
 
     /** 対象を世話しようとするかを返す. */
-    fun willTakeCareOf(other: YukkuriStat): Boolean {
+    fun willTakeCareOf(other: YukkuriStats): Boolean {
         if (!other.isDirty)
             return false
         if (self.isParentOf(other)) {

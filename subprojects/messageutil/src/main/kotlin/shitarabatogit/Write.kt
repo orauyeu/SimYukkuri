@@ -38,8 +38,8 @@ fun writeShitarabaMessages(writeDir: Path, readDir: Path) {
             throw RuntimeException("次のファイルでエラーがありました: $oldFilePath", e)
         }
             .let { zipBabyChild(it) }
-            .let { renameCommentedMessages(it) }
-            .let { messageDataToString(it) }
+            .let { renameCommentedMessages(it, shitarabaRenameMap) }
+            .let { messageCollectionToYaml(it) }
 
         val splited = oldFilePath.fileName.toString().split('_', '.')
         val newFileName = when {

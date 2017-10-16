@@ -1,8 +1,8 @@
 package simyukkuri.gameobject
 
-import simyukkuri.resource.Images
+import simyukkuri.resource.ImageList
 
 /** 床置オブジェクト */
 abstract class Rug : GameObject {
-    abstract val images: Images
+    abstract val imageList: ImageList
 }

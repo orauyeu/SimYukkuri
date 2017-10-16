@@ -1,6 +1,6 @@
 package simyukkuri.gameobject.yukkuri.statistic.statistics
 
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 
 /** ゆっくりの妊娠のインターフェース */
 interface Pregnancy {
@@ -11,7 +11,7 @@ interface Pregnancy {
     val isInTravail: Boolean
 
     /** お腹の中にいる子供のコレクション */
-    val babiesInWomb: MutableSet<YukkuriStat>
+    val babiesInWomb: MutableSet<YukkuriStats>
 
     fun update()
 }

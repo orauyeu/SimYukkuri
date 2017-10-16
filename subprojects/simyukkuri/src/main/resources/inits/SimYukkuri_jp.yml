@@ -119,7 +119,7 @@ panel:
         - "所持金"
         - "収益(￥/分)"
 initpath: "inits/"
-imagepath: "images/"
+imagepath: "imageList/"
 yukkuri: 
   - name: "まりさ"
     init: "Marisa.yml"

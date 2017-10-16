@@ -30,7 +30,7 @@ open class YukkuriRenderer(val yukkuri: Yukkuri, val currentMapSize: SizeXZ) : R
     }
 
 
-    private val images = yukkuri.images
+    private val images = yukkuri.imageList
 
 
     /**
@@ -39,7 +39,7 @@ open class YukkuriRenderer(val yukkuri: Yukkuri, val currentMapSize: SizeXZ) : R
     private fun resizeByFigure(rect: RectangleXY): RectangleXY {
         // x方向の倍率
         var mag = 1.0
-        if (yukkuri.isRude) {
+        if (yukkuri.isImmoral) {
             mag *= 1.1
         }
         if (yukkuri.isPregnant) {
@@ -132,9 +132,9 @@ open class YukkuriRenderer(val yukkuri: Yukkuri, val currentMapSize: SizeXZ) : R
                 images.tired
             yukkuri.isHappy ->
                 images.smile
-            yukkuri.isTalking && yukkuri.isRude ->
+            yukkuri.isTalking && yukkuri.isImmoral ->
                 images.rude
-            yukkuri.isTalking && !yukkuri.isRude ->
+            yukkuri.isTalking && !yukkuri.isImmoral ->
                 images.cheer
         // 50分の1の確率で瞬き
         // TODO: もっと長時間目を閉じるために状態を持たせる.

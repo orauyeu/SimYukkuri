@@ -6,7 +6,7 @@ import simyukkuri.gameobject.yukkuri.event.IndividualEvent
 import simyukkuri.gameobject.yukkuri.event.action.Action
 import simyukkuri.gameobject.yukkuri.event.action.MultipleAction
 import simyukkuri.gameobject.yukkuri.event.action.Posture
-import simyukkuri.gameobject.yukkuri.statistic.YukkuriStat
+import simyukkuri.gameobject.yukkuri.statistic.YukkuriStats
 import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
 
 /**
@@ -14,11 +14,11 @@ import simyukkuri.gameobject.yukkuri.statistic.statistics.Emotion
  *
  * もしゲスならば, 出産後ふりふりする.
  */
-class Bear(self: YukkuriStat, gameScene: GameScene) : MultipleAction() {
+class Bear(self: YukkuriStats, gameScene: GameScene) : MultipleAction() {
     override var currentAction: Action = BearImpl(self, gameScene)
 }
 
-private class BearImpl(val self: YukkuriStat, val gameScene: GameScene) : Action {
+private class BearImpl(val self: YukkuriStats, val gameScene: GameScene) : Action {
     override var hasEnded = false
 
     override var currentAction: Action = this
@@ -36,7 +36,7 @@ private class BearImpl(val self: YukkuriStat, val gameScene: GameScene) : Action
 
         if (self.hasWrapper) {
             bearWithWrapper()
-            currentAction = Say(self, self.messages.abort)
+            currentAction = Say(self, self.msgList.lamentsForAbortingBaby)
             return
         } else {
             bearChild()
