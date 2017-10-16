@@ -1,43 +1,44 @@
-SimYukkuri3(to be named)
+しむゆっくり3(仮)
 ===
 
-Making a simulator of Yukkuri.
+ゆっくりのシミュレータを作ります。
 
-This project is derived from the following project developed by Mimisuke.
+このプロジェクトはMimisuke氏によって開発された以下のプロジェクトから派生したものです。
 
-* https://osdn.net/projects/simyukkuri/
+* https://ja.osdn.net/projects/simyukkuri/
 
 
 **Read this in other languages:**
-- [日本語 (Japanese)](README.ja.md)
-- English : *this file*
+- 日本語 (Japanese) : *this file*
+- [English (英語)](README.en.md)
 
 
-System Requirements
+システム要件
 ---
 
-* Latest Java Runtime Environment (JRE)
-* An environment satisfying the system requirements requested by JRE
+* 最新のJavaランタイム環境 (JRE)
+* JREが要求するシステム要件を満たす環境
 
-Install
----
-
-(TBD)
-
-How to Use
+インストール
 ---
 
 (TBD)
 
-
-Contributing
+使用方法
 ---
 
-See [CONTRIBUTING](CONTRIBUTING.ja.md).
+(TBD)
 
-License
+
+プロジェクトに参加するには
 ---
 
-SimYukkuri3(to be named) is licensed under [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+[CONTRIBUTING](CONTRIBUTING.md)をご覧ください。
 
-See [LICENSE](LICENSE.md) in detail.
+ライセンス
+---
+
+しむゆっくり3(仮)は「[Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)」でライセンスされています。
+
+詳しくは[LICENSE](LICENSE.md)をご覧ください。
+
